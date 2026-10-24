@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.frameword.test.ui.PlannerController" fitToWidth="true" styleClass="page-scroll">
+	<VBox spacing="12">
+		<padding>
+			<Insets top="24" right="28" bottom="24" left="28" />
+		</padding>
+
+		<HBox spacing="10" alignment="CENTER_LEFT">
+			<VBox spacing="2">
+				<Label fx:id="greetingLabel" styleClass="page-title" />
+				<Label fx:id="dateLabel" styleClass="muted" />
+			</VBox>
+			<Region HBox.hgrow="ALWAYS" />
+			<ProgressIndicator fx:id="progress" visible="false" prefWidth="22" prefHeight="22" />
+			<Hyperlink text="Open calendar" onAction="#onOpenCalendar" />
+			<Button fx:id="refreshButton" text="Refresh" onAction="#onRefresh" />
+		</HBox>
+
+		<HBox spacing="14">
+			<VBox styleClass="tile, tile-indigo">
+				<Label fx:id="eventsCount" styleClass="tile-count" text="0" />
+				<Label text="Events today" styleClass="muted" />
+			</VBox>
+			<VBox styleClass="tile, tile-rose">
+				<Label fx:id="overdueCount" styleClass="tile-count" text="0" />
+				<Label text="Overdue" styleClass="muted" />
+			</VBox>
+			<VBox styleClass="tile, tile-amber">
+				<Label fx:id="todayCount" styleClass="tile-count" text="0" />
+				<Label text="Due today" styleClass="muted" />
+			</VBox>
+			<VBox styleClass="tile, tile-emerald">
+				<Label fx:id="upcomingCount" styleClass="tile-count" text="0" />
+				<Label text="Upcoming" styleClass="muted" />
+			</VBox>
+		</HBox>
+
+		<VBox fx:id="warningBox" styleClass="warning-box" spacing="4" visible="false" managed="false" />
+
+		<Label text="Events today" styleClass="section-title" />
+		<VBox fx:id="eventsBox" spacing="8" />
+
+		<Label text="Overdue" styleClass="section-title" />
+		<VBox fx:id="overdueBox" spacing="8" />
+
+		<Label text="Due today" styleClass="section-title" />
+		<VBox fx:id="todayBox" spacing="8" />
+
+		<Label text="Upcoming" styleClass="section-title" />
+		<VBox fx:id="upcomingBox" spacing="8" />
+	</VBox>
+</ScrollPane>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.frameword.test.ui.DriveController" styleClass="page">
+	<fx:define>
+		<ToggleGroup fx:id="sectionGroup" />
+	</fx:define>
+
+	<HBox styleClass="toolbar" spacing="6" alignment="CENTER_LEFT">
+		<HBox spacing="-1">
+			<ToggleButton fx:id="myDriveToggle" text="My Drive" toggleGroup="$sectionGroup" styleClass="seg, seg-left" onAction="#onMyDrive" />
+			<ToggleButton fx:id="sharedToggle" text="Shared with me" toggleGroup="$sectionGroup" styleClass="seg" onAction="#onShared" />
+			<ToggleButton fx:id="trashToggle" text="Trash" toggleGroup="$sectionGroup" styleClass="seg, seg-right" onAction="#onTrash" />
+		</HBox>
+		<TextField fx:id="searchField" promptText="Search in Drive" prefWidth="240" onAction="#onSearch" />
+		<Region HBox.hgrow="ALWAYS" />
+		<ProgressIndicator fx:id="progress" visible="false" prefWidth="16" prefHeight="16" />
+		<Button fx:id="emptyTrashButton" text="Empty Trash" onAction="#onEmptyTrash" visible="false" managed="false" />
+		<Button fx:id="refreshButton" text="Refresh" onAction="#onRefresh" />
+		<Button fx:id="newFolderButton" text="New folder" onAction="#onNewFolder" />
+		<Button fx:id="uploadButton" text="Upload" onAction="#onUpload" styleClass="accent-button" />
+	</HBox>
+	
+	<HBox fx:id="selectionBar" styleClass="selection-bar" spacing="8" alignment="CENTER_LEFT" visible="false" managed="false">
+		<Label fx:id="selectionLabel" styleClass="selection-label" />
+		<Region HBox.hgrow="ALWAYS" />
+		<Button fx:id="restoreSelectedButton" text="Restore" onAction="#onRestoreSelected" visible="false" managed="false" />
+		<Button fx:id="moveSelectedButton" text="Move" onAction="#onMoveSelected" />
+		<Button fx:id="deleteSelectedButton" text="Move to Trash" onAction="#onDeleteSelected" />
+		<Button fx:id="downloadSelectedButton" text="Download" onAction="#onDownloadSelected" styleClass="accent-button" />
+		<Button text="Clear" onAction="#onClearSelection" />
+	</HBox>
+
+	<HBox fx:id="breadcrumbBar" styleClass="drive-breadcrumb" spacing="4" alignment="CENTER_LEFT" />
+
+	<Label fx:id="warningLabel" styleClass="warning-box" wrapText="true" maxWidth="Infinity" visible="false" managed="false" />
+
+	<ScrollPane fx:id="scrollPane" fitToWidth="true" hbarPolicy="NEVER" styleClass="drive-scroll" VBox.vgrow="ALWAYS">
+		<VBox styleClass="drive-content" spacing="12">
+			<FlowPane fx:id="cardGrid" styleClass="drive-grid" hgap="12" vgap="12" />
+			<Label fx:id="emptyLabel" text="This folder is empty" styleClass="muted" visible="false" managed="false" />
+			<Button fx:id="loadMoreButton" text="Load more" onAction="#onLoadMore" visible="false" managed="false" />
+		</VBox>
+	</ScrollPane>
+</VBox>

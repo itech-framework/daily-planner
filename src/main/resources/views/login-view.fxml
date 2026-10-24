@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.frameword.test.ui.LoginController" styleClass="login-root" spacing="14" prefWidth="520" prefHeight="460">
+	<padding>
+		<Insets top="24" right="24" bottom="24" left="24" />
+	</padding>
+
+	<Label text="Google Login" styleClass="login-title" />
+	<Label text="Loopback sign-in through the iTech api-client module" opacity="0.7" />
+	<Separator />
+
+	<HBox spacing="10" alignment="CENTER_LEFT">
+		<ProgressIndicator fx:id="progress" visible="false" prefWidth="22" prefHeight="22" />
+		<Label fx:id="statusLabel" wrapText="true" HBox.hgrow="ALWAYS" />
+	</HBox>
+
+	<VBox fx:id="browserPane" spacing="6" visible="false" managed="false">
+		<Label text="Your browser should open the Google sign-in page. If it did not:" opacity="0.7" wrapText="true" />
+		<HBox spacing="10" alignment="CENTER_LEFT">
+			<Hyperlink fx:id="authLink" text="Open the sign-in page" onAction="#onOpenLink" />
+			<Button text="Copy link" styleClass="ghost-button" onAction="#onCopyLink" />
+		</HBox>
+	</VBox>
+
+	<VBox fx:id="userPane" spacing="6" visible="false" managed="false">
+		<Label text="Signed in user" style="-fx-font-weight: bold;" />
+		<HBox spacing="8">
+			<Label text="Name:" minWidth="110" opacity="0.7" />
+			<Label fx:id="nameLabel" />
+		</HBox>
+		<HBox spacing="8">
+			<Label text="Email:" minWidth="110" opacity="0.7" />
+			<Label fx:id="emailLabel" />
+		</HBox>
+		<HBox spacing="8">
+			<Label text="Subject:" minWidth="110" opacity="0.7" />
+			<Label fx:id="subLabel" />
+		</HBox>
+		<HBox spacing="8">
+			<Label text="Email verified:" minWidth="110" opacity="0.7" />
+			<Label fx:id="verifiedLabel" />
+		</HBox>
+	</VBox>
+
+	<HBox spacing="10">
+		<Button fx:id="loginButton" text="Sign in with Google" styleClass="accent-button" onAction="#onLogin" />
+		<Button fx:id="cancelButton" text="Cancel" styleClass="ghost-button" onAction="#onCancel" visible="false" managed="false" />
+		<Button fx:id="logoutButton" text="Sign out" styleClass="ghost-button" onAction="#onLogout" visible="false" managed="false" />
+	</HBox>
+</VBox>

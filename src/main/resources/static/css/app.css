@@ -1,0 +1,1468 @@
+.root {
+    -fx-font-family: "Segoe UI", "Inter", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+    -fx-base: -app-bg;
+    -fx-background: -app-bg;
+    -fx-control-inner-background: -app-surface;
+    -fx-accent: -app-primary;
+    -fx-focus-color: -app-primary;
+    -fx-faint-focus-color: transparent;
+    -fx-primary: -app-primary;
+    -fx-primary-dark: -app-primary-dark;
+
+    -app-primary: #0078D7;
+    -app-primary-dark: #005A9E;
+    -app-primary-hover: #106EBE;
+    -app-primary-pressed: #004578;
+    -app-on-primary: #FFFFFF;
+    -app-link: #0063B1;
+    -app-emerald: #107C10;
+    -app-rose: #E81123;
+    -app-violet: #744DA9;
+    -app-now: #E81123;
+
+    -app-bg: #F0F0F0;
+    -app-layer: #F7F7F7;
+    -app-surface: #FFFFFF;
+    -app-hover: #E5E5E5;
+    -app-pressed: #CCCCCC;
+
+    -app-control-bg: #E1E1E1;
+    -app-control-border: #ADADAD;
+    -app-control-hover: #E5F1FB;
+    -app-control-hover-border: -app-primary;
+    -app-control-pressed: #CCE4F7;
+    -app-control-pressed-border: #005499;
+    -app-input-border: #7A7A7A;
+    -app-input-border-hover: #171717;
+
+    -app-text: #000000;
+    -app-text-muted: #666666;
+    -app-text-disabled: #838383;
+    -app-line: #DADADA;
+    -app-line-strong: #ADADAD;
+    -app-selected-bg: #CCE4F7;
+    -app-selected-text: #000000;
+    -app-today-tint: rgba(0, 120, 215, 0.08);
+    -app-shadow: rgba(0, 0, 0, 0.26);
+    -app-disabled-bg: #CCCCCC;
+
+    -app-scroll-thumb: #CDCDCD;
+    -app-scroll-thumb-hover: #A6A6A6;
+    -app-scroll-thumb-pressed: #606060;
+
+    -chip-event: #CDE6F7;
+    -chip-task: #D5EDD5;
+    -chip-overdue: #FAD3D6;
+
+    -app-indigo-border: #99C9EF;
+    -app-indigo-tint: #EBF4FC;
+    -app-indigo-text: #004E8C;
+    -app-rose-border: #F1A9AF;
+    -app-rose-tint: #FDEEEF;
+    -app-rose-text: #A4262C;
+    -app-amber-border: #F2D26B;
+    -app-amber-tint: #FFF4CE;
+    -app-amber-text: #5C4400;
+    -app-emerald-border: #9BD39B;
+    -app-emerald-tint: #E8F5E8;
+    -app-emerald-text: #0B5A0B;
+
+    -app-danger-soft-bg: #FDE7E9;
+    -app-danger-soft-border: #F1AEB5;
+    -app-danger-soft-text: #A4262C;
+
+    -app-badge-text: #FFFFFF;
+    -app-drive-default: #5F6368;
+    -app-drive-folder: #A66F00;
+    -app-drive-doc: #0B57D0;
+    -app-drive-sheet: #0B7A3E;
+    -app-drive-slides: #B26A00;
+    -app-drive-pdf: #C42B1C;
+    -app-drive-image: #7A3FBF;
+    -app-drive-video: #B3261E;
+
+    -app-sidebar-bg: -app-bg;
+    -app-sidebar-border: -app-line;
+    -app-sidebar-text: -app-text;
+    -app-sidebar-text-muted: -app-text-muted;
+    -app-sidebar-brand: -app-text;
+    -app-sidebar-hover: -app-hover;
+    -app-sidebar-active-border: -app-primary;
+    -app-sidebar-active-tint: -app-pressed;
+    -app-sidebar-active-text: -app-text;
+    -app-sidebar-user-bg: -app-surface;
+    -app-sidebar-user-border: -app-line-strong;
+
+    -app-ghost-border: -app-control-border;
+    -app-ghost-text: -app-text;
+    -app-ghost-hover-bg: -app-control-hover;
+    -app-ghost-hover-text: -app-text;
+
+    -app-download-row-bg: -app-surface;
+    -app-download-row-border: -app-line;
+    -app-download-name: -app-text;
+    -app-download-status: -app-text-muted;
+    -app-download-progress-track: -app-line;
+}
+
+.root.dark-mode {
+    -app-primary: #3A96DD;
+    -app-primary-dark: #1F6FB3;
+    -app-primary-hover: #5AA8E6;
+    -app-primary-pressed: #165A94;
+    -app-on-primary: #FFFFFF;
+    -app-link: #6CB8FF;
+    -app-emerald: #6CCB5F;
+    -app-rose: #FF6B76;
+    -app-violet: #A78BDB;
+    -app-now: #FF5A64;
+
+    -app-bg: #282828;
+    -app-layer: #1F1F1F;
+    -app-surface: #2B2B2B;
+    -app-hover: #3A3A3A;
+    -app-pressed: #4A4A4A;
+
+    -app-control-bg: #3C3C3C;
+    -app-control-border: #6B6B6B;
+    -app-control-hover: #2B3F52;
+    -app-control-pressed: #234B6E;
+    -app-control-pressed-border: #1F6FB3;
+    -app-input-border: #8A8A8A;
+    -app-input-border-hover: #D0D0D0;
+
+    -app-text: #FFFFFF;
+    -app-text-muted: #A8A8A8;
+    -app-text-disabled: #7A7A7A;
+    -app-line: #404040;
+    -app-line-strong: #6B6B6B;
+    -app-selected-bg: #1B4D7E;
+    -app-selected-text: #FFFFFF;
+    -app-today-tint: rgba(108, 184, 255, 0.10);
+    -app-shadow: rgba(0, 0, 0, 0.6);
+    -app-disabled-bg: #3D3D3D;
+
+    -app-scroll-thumb: #5A5A5A;
+    -app-scroll-thumb-hover: #7A7A7A;
+    -app-scroll-thumb-pressed: #A0A0A0;
+
+    -chip-event: rgba(108, 184, 255, 0.25);
+    -chip-task: rgba(108, 203, 95, 0.22);
+    -chip-overdue: rgba(255, 107, 118, 0.25);
+
+    -app-indigo-border: #2F5E8A;
+    -app-indigo-tint: #1B2A38;
+    -app-indigo-text: #A6D4FF;
+    -app-rose-border: #8B3A44;
+    -app-rose-tint: #2E1C1F;
+    -app-rose-text: #FFB3BB;
+    -app-amber-border: #8A6A1E;
+    -app-amber-tint: #2C2512;
+    -app-amber-text: #FCD34D;
+    -app-emerald-border: #2E7A2E;
+    -app-emerald-tint: #1B2B1B;
+    -app-emerald-text: #9BE08F;
+
+    -app-danger-soft-bg: #3A1D20;
+    -app-danger-soft-border: #7A3039;
+    -app-danger-soft-text: #FF99A4;
+}
+
+.label {
+    -fx-text-fill: -app-text;
+}
+
+.app-shell {
+    -fx-background-color: -app-bg;
+}
+
+.content,
+.page {
+    -fx-background-color: -app-layer;
+}
+
+.page-scroll,
+.page-scroll > .viewport {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.sidebar {
+    -fx-background-color: -app-sidebar-bg;
+    -fx-border-color: transparent -app-sidebar-border transparent transparent;
+    -fx-border-width: 0 1 0 0;
+}
+
+.sidebar .label {
+    -fx-text-fill: -app-sidebar-text;
+}
+
+.sidebar .muted {
+    -fx-text-fill: -app-sidebar-text-muted;
+}
+
+.brand {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-sidebar-brand;
+    -fx-padding: 0 0 8 0;
+}
+
+.user-box {
+    -fx-background-color: -app-sidebar-user-border, -app-sidebar-user-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 8 10 8 10;
+}
+
+.user-name {
+    -fx-font-weight: bold;
+}
+
+.avatar {
+    -fx-background-color: -app-primary;
+    -fx-background-radius: 16;
+    -fx-min-width: 32;
+    -fx-min-height: 32;
+    -fx-pref-width: 32;
+    -fx-pref-height: 32;
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-on-primary;
+}
+
+.avatar .label,
+.sidebar .avatar {
+    -fx-text-fill: -app-on-primary;
+}
+
+.nav-button,
+.button.nav-button {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 9 12 9 16;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 4;
+    -fx-border-insets: 0;
+    -fx-border-radius: 0;
+    -fx-effect: null;
+    -fx-font-size: 13px;
+    -fx-text-fill: -app-sidebar-text;
+    -fx-cursor: hand;
+}
+
+.nav-button:focused,
+.button.nav-button:focused {
+    -fx-background-color: transparent;
+}
+
+.nav-button:hover,
+.button.nav-button:hover {
+    -fx-background-color: -app-sidebar-hover;
+    -fx-text-fill: -app-sidebar-brand;
+    -fx-effect: null;
+}
+
+.nav-button:pressed,
+.button.nav-button:pressed {
+    -fx-background-color: -app-pressed;
+}
+
+.nav-button.nav-active,
+.button.nav-button.nav-active,
+.button.nav-button.nav-active:hover,
+.button.nav-button.nav-active:focused {
+    -fx-background-color: -app-sidebar-active-tint;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent transparent transparent -app-sidebar-active-border;
+    -fx-text-fill: -app-sidebar-active-text;
+    -fx-effect: null;
+}
+
+.button,
+.button:default,
+.button:focused {
+    -fx-background-color: -app-control-border, -app-control-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-text-fill: -app-text;
+    -fx-padding: 5 16 5 16;
+    -fx-font-size: 13px;
+    -fx-effect: null;
+    -fx-cursor: hand;
+}
+
+.button:hover,
+.button:default:hover {
+    -fx-background-color: -app-control-hover-border, -app-control-hover;
+}
+
+.button:pressed,
+.button:default:pressed {
+    -fx-background-color: -app-control-pressed-border, -app-control-pressed;
+}
+
+.button:disabled {
+    -fx-opacity: 1;
+    -fx-text-fill: -app-text-disabled;
+    -fx-background-color: -app-disabled-bg;
+    -fx-background-insets: 0;
+}
+
+.ghost-button,
+.button.ghost-button,
+.button.ghost-button:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: -app-ghost-border;
+    -fx-border-width: 1;
+    -fx-border-radius: 0;
+    -fx-text-fill: -app-ghost-text;
+    -fx-padding: 4 12 4 12;
+    -fx-font-size: 12px;
+    -fx-effect: null;
+    -fx-cursor: hand;
+}
+
+.ghost-button:hover,
+.button.ghost-button:hover {
+    -fx-background-color: -app-ghost-hover-bg;
+    -fx-border-color: -app-control-hover-border;
+    -fx-text-fill: -app-ghost-hover-text;
+}
+
+.ghost-button.danger-soft:hover,
+.button.ghost-button.danger-soft:hover {
+    -fx-background-color: -app-danger-soft-bg;
+    -fx-border-color: -app-danger-soft-border;
+    -fx-text-fill: -app-danger-soft-text;
+}
+
+.accent-button,
+.light-button,
+.button.accent-button,
+.button.accent-button:default,
+.button.accent-button:focused,
+.button.dialog-action-button,
+.button.dialog-action-button:focused {
+    -fx-background-color: -app-primary;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-text-fill: -app-on-primary;
+    -fx-padding: 5 18 5 18;
+    -fx-effect: null;
+    -fx-cursor: hand;
+}
+
+.light-button {
+    -fx-padding: 8 24 8 24;
+}
+
+.accent-button:hover,
+.light-button:hover,
+.button.accent-button:hover,
+.button.accent-button:default:hover,
+.button.dialog-action-button:hover {
+    -fx-background-color: -app-primary-hover;
+    -fx-effect: null;
+}
+
+.accent-button:pressed,
+.button.accent-button:pressed,
+.button.accent-button:default:pressed,
+.button.dialog-action-button:pressed {
+    -fx-background-color: -app-primary-pressed;
+    -fx-effect: null;
+}
+
+.accent-button:disabled,
+.button.accent-button:disabled,
+.button.dialog-action-button:disabled {
+    -fx-background-color: -app-disabled-bg;
+    -fx-text-fill: -app-text-disabled;
+    -fx-opacity: 1;
+    -fx-effect: null;
+}
+
+.page-title {
+    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-size: 28px;
+    -fx-text-fill: -app-text;
+}
+
+.section-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+    -fx-padding: 14 0 6 0;
+}
+
+.muted {
+    -fx-text-fill: -app-text-muted;
+    -fx-font-size: 12px;
+}
+
+.empty-note {
+    -fx-text-fill: -app-text-muted;
+    -fx-padding: 4 0 4 0;
+}
+
+.error-text {
+    -fx-text-fill: -app-rose;
+}
+
+.tile {
+    -tile-border: -app-indigo-border;
+    -tile-tint: -app-indigo-tint;
+    -tile-text: -app-indigo-text;
+    -fx-background-color: -tile-border, -tile-tint;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 12 16 12 16;
+    -fx-min-width: 140;
+    -fx-pref-width: 160;
+}
+
+.tile .tile-count {
+    -fx-text-fill: -tile-text;
+}
+
+.tile .muted {
+    -fx-text-fill: -tile-text;
+    -fx-opacity: 0.9;
+}
+
+.tile-count {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+.tile-indigo {
+    -tile-border: -app-indigo-border;
+    -tile-tint: -app-indigo-tint;
+    -tile-text: -app-indigo-text;
+}
+
+.tile-rose {
+    -tile-border: -app-rose-border;
+    -tile-tint: -app-rose-tint;
+    -tile-text: -app-rose-text;
+}
+
+.tile-amber {
+    -tile-border: -app-amber-border;
+    -tile-tint: -app-amber-tint;
+    -tile-text: -app-amber-text;
+}
+
+.tile-emerald {
+    -tile-border: -app-emerald-border;
+    -tile-tint: -app-emerald-tint;
+    -tile-text: -app-emerald-text;
+}
+
+.agenda-card {
+    -card-border: -app-indigo-border;
+    -card-bg: -app-indigo-tint;
+    -fx-background-color: -card-border, -card-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 10 14 10 14;
+}
+
+.agenda-card:hover {
+    -fx-background-color: -app-primary, -card-bg;
+}
+
+.agenda-card.task {
+    -card-border: -app-emerald-border;
+    -card-bg: -app-emerald-tint;
+}
+
+.agenda-card.task:hover {
+    -fx-background-color: -app-emerald, -card-bg;
+}
+
+.agenda-card.overdue {
+    -card-border: -app-rose-border;
+    -card-bg: -app-rose-tint;
+}
+
+.agenda-card.overdue:hover {
+    -fx-background-color: -app-rose, -card-bg;
+}
+
+.agenda-title {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.agenda-title.done {
+    -fx-text-fill: -app-text-muted;
+}
+
+.agenda-title.done .text {
+    -fx-strikethrough: true;
+}
+
+.overdue-text {
+    -fx-text-fill: -app-rose;
+}
+
+.warning-box {
+    -fx-background-color: -app-amber-border, -app-amber-tint;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 10 14 10 14;
+}
+
+.warning-text {
+    -fx-text-fill: -app-amber-text;
+}
+
+.status-bar {
+    -fx-background-color: -app-bg;
+    -fx-padding: 4 12 4 12;
+    -fx-border-color: -app-line transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.text-field,
+.password-field,
+.text-area,
+.combo-box,
+.date-picker {
+    -fx-background-color: -app-input-border, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-border-color: transparent;
+    -fx-text-fill: -app-text;
+    -fx-prompt-text-fill: -app-text-muted;
+    -fx-highlight-fill: -app-selected-bg;
+    -fx-highlight-text-fill: -app-selected-text;
+    -fx-effect: null;
+}
+
+.text-field,
+.password-field {
+    -fx-padding: 6 10 6 10;
+}
+
+.text-area .content {
+    -fx-background-color: -app-surface;
+    -fx-background-radius: 0;
+}
+
+.text-field:hover,
+.password-field:hover,
+.text-area:hover,
+.combo-box:hover,
+.date-picker:hover {
+    -fx-background-color: -app-input-border-hover, -app-surface;
+}
+
+.text-field:focused,
+.password-field:focused,
+.text-area:focused,
+.combo-box:focused,
+.date-picker:focused {
+    -fx-background-color: -app-primary, -app-surface;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0, 0;
+    -fx-effect: null;
+}
+
+.date-picker .text-field,
+.combo-box .text-field,
+.date-picker .text-field:hover,
+.combo-box .text-field:hover,
+.date-picker .text-field:focused,
+.combo-box .text-field:focused {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-effect: null;
+}
+
+.combo-box .arrow-button,
+.date-picker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0 8 0 8;
+}
+
+.combo-box .arrow,
+.date-picker .arrow-button .icon {
+    -fx-background-color: -app-text-muted;
+}
+
+.check-box {
+    -fx-text-fill: -app-text;
+}
+
+.check-box .box {
+    -fx-background-color: -app-text-muted, -app-surface;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0, 0;
+    -fx-border-color: transparent;
+    -fx-padding: 0.25em 0.25em 0.3em 0.3em;
+    -fx-effect: null;
+}
+
+.check-box:hover .box {
+    -fx-background-color: -app-text, -app-surface;
+}
+
+.check-box:selected .box,
+.check-box:selected:focused .box {
+    -fx-background-color: -app-primary;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent;
+}
+
+.check-box:selected:hover .box {
+    -fx-background-color: -app-primary-hover;
+}
+
+.check-box .mark {
+    -fx-background-color: transparent;
+    -fx-padding: 0.35em 0.4em 0.4em 0.45em;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: -app-on-primary;
+}
+
+.check-box:disabled {
+    -fx-opacity: 0.5;
+}
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 12;
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 12;
+}
+
+.scroll-bar .track,
+.scroll-bar .track-background {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -app-scroll-thumb;
+    -fx-background-radius: 0;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-insets: 0 3 0 3;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-insets: 3 0 3 0;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: -app-scroll-thumb-hover;
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: -app-scroll-thumb-pressed;
+}
+
+.scroll-bar:vertical > .increment-button,
+.scroll-bar:vertical > .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+}
+
+.scroll-bar:horizontal > .increment-button,
+.scroll-bar:horizontal > .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+    -fx-pref-width: 0;
+    -fx-min-width: 0;
+}
+
+.scroll-bar > .increment-button > .increment-arrow,
+.scroll-bar > .decrement-button > .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+.login-root {
+    -fx-background-color: -app-bg;
+}
+
+.login-root .label {
+    -fx-text-fill: -app-text;
+}
+
+.login-root .hyperlink {
+    -fx-text-fill: -app-link;
+}
+
+.login-root .separator .line {
+    -fx-border-color: -app-line-strong transparent transparent transparent;
+}
+
+.login-title {
+    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-size: 28px;
+}
+
+.toolbar {
+    -fx-padding: 6 12 6 12;
+    -fx-background-color: -app-bg;
+    -fx-border-color: transparent transparent -app-line transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.toolbar .button {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0 12 0 12;
+    -fx-font-size: 13px;
+}
+
+.toolbar .button:hover {
+    -fx-background-color: -app-hover;
+}
+
+.toolbar .button:pressed {
+    -fx-background-color: -app-pressed;
+}
+
+.toolbar .button:disabled {
+    -fx-background-color: transparent;
+    -fx-text-fill: -app-text-disabled;
+}
+
+.toolbar .button.accent-button,
+.toolbar .button.accent-button:focused {
+    -fx-background-color: -app-primary;
+    -fx-text-fill: -app-on-primary;
+    -fx-padding: 0 18 0 18;
+}
+
+.toolbar .button.accent-button:hover {
+    -fx-background-color: -app-primary-hover;
+}
+
+.toolbar .button.accent-button:pressed {
+    -fx-background-color: -app-primary-pressed;
+}
+
+.toolbar .button.accent-button:disabled {
+    -fx-background-color: -app-disabled-bg;
+    -fx-text-fill: -app-text-disabled;
+}
+
+.toolbar .icon-button {
+    -fx-padding: 0 10 2 10;
+    -fx-font-size: 16px;
+}
+
+.toolbar .seg,
+.toolbar .button,
+.toolbar .text-field {
+    -fx-min-height: 32;
+    -fx-pref-height: 32;
+    -fx-max-height: 32;
+}
+
+.toolbar .seg {
+    -fx-padding: 0 16 0 16;
+    -fx-alignment: CENTER;
+}
+
+.toolbar .text-field {
+    -fx-padding: 0 10 0 10;
+}
+
+.cal-title {
+    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-size: 20px;
+    -fx-text-fill: -app-text;
+    -fx-padding: 0 0 0 10;
+}
+
+.cal-host,
+.time-grid,
+.time-body,
+.month-grid {
+    -fx-background-color: -app-surface;
+}
+
+.seg {
+    -fx-background-color: -app-control-border, -app-control-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 4 14 4 14;
+    -fx-font-size: 13px;
+    -fx-text-fill: -app-text;
+    -fx-cursor: hand;
+}
+
+.seg:hover {
+    -fx-background-color: -app-control-hover-border, -app-control-hover;
+}
+
+.seg:focused {
+    -fx-background-color: -app-control-border, -app-control-bg;
+}
+
+.seg:hover:focused {
+    -fx-background-color: -app-control-hover-border, -app-control-hover;
+}
+
+.seg:selected,
+.seg:selected:hover,
+.seg:selected:focused {
+    -fx-background-color: -app-primary;
+    -fx-background-insets: 0;
+    -fx-text-fill: -app-on-primary;
+}
+
+.time-header {
+    -fx-padding: 4 0 4 0;
+    -fx-border-color: transparent transparent -app-line transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.time-header-cell {
+    -fx-padding: 1 0 1 0;
+}
+
+.weekday-label {
+    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text-muted;
+}
+
+.date-badge {
+    -fx-font-size: 13px;
+    -fx-text-fill: -app-text;
+    -fx-min-width: 26;
+    -fx-min-height: 26;
+    -fx-alignment: CENTER;
+    -fx-background-radius: 0;
+}
+
+.date-today {
+    -fx-background-color: -app-primary;
+    -fx-text-fill: -app-on-primary;
+    -fx-font-weight: bold;
+}
+
+.allday-row {
+    -fx-padding: 3 0 3 0;
+    -fx-border-color: transparent transparent -app-line transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.allday-cell {
+    -fx-padding: 0 2 0 2;
+}
+
+.time-label {
+    -fx-font-size: 10px;
+    -fx-text-fill: -app-text-muted;
+    -fx-padding: 0 6 0 0;
+}
+
+.day-column {
+    -fx-border-color: transparent transparent transparent -app-line;
+    -fx-border-width: 0 0 0 1;
+}
+
+.day-column-today {
+    -fx-background-color: -app-today-tint;
+}
+
+.hour-line {
+    -fx-background-color: -app-line;
+}
+
+.now-line {
+    -fx-background-color: -app-now;
+}
+
+.month-grid .weekday-label {
+    -fx-padding: 6 0 4 0;
+    -fx-border-color: transparent transparent -app-line transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.month-cell {
+    -fx-padding: 2 3 2 3;
+    -fx-background-color: -app-surface;
+    -fx-border-color: transparent -app-line -app-line transparent;
+    -fx-border-width: 0 1 1 0;
+}
+
+.month-cell:hover {
+    -fx-background-color: -app-control-hover;
+}
+
+.month-cell-other {
+    -fx-background-color: -app-layer;
+}
+
+.month-cell-other .date-badge {
+    -fx-opacity: 0.5;
+}
+
+.month-cell-today,
+.month-cell-today:hover {
+    -fx-background-color: -app-today-tint;
+}
+
+.more-link {
+    -fx-font-size: 11px;
+    -fx-text-fill: -app-link;
+    -fx-padding: 0 4 0 4;
+    -fx-cursor: hand;
+}
+
+.more-link:hover {
+    -fx-underline: true;
+}
+
+.chip {
+    -fx-padding: 1 5 1 7;
+    -fx-cursor: hand;
+}
+
+.chip:hover {
+    -fx-opacity: 0.85;
+}
+
+.chip-title {
+    -fx-font-size: 12px;
+    -fx-text-fill: -app-text;
+}
+
+.chip-time {
+    -fx-font-size: 11px;
+    -fx-text-fill: -app-text-muted;
+}
+
+.chip-event {
+    -fx-background-color: -chip-event;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent transparent transparent -app-primary;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 0;
+}
+
+.chip-allday {
+    -fx-background-color: -app-primary;
+    -fx-background-radius: 0;
+}
+
+.chip-allday .chip-title {
+    -fx-text-fill: -app-on-primary;
+}
+
+.chip-task {
+    -fx-background-color: -chip-task;
+    -fx-background-radius: 0;
+    -fx-border-color: transparent transparent transparent -app-emerald;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-radius: 0;
+}
+
+.chip-overdue {
+    -fx-background-color: -chip-overdue;
+    -fx-border-color: transparent transparent transparent -app-rose;
+}
+
+.day-column .chip-event {
+    -fx-background-color: -app-surface, -chip-event;
+    -fx-background-insets: 0, 0;
+}
+
+.day-column .chip-task {
+    -fx-background-color: -app-surface, -chip-task;
+    -fx-background-insets: 0, 0;
+}
+
+.day-column .chip-overdue {
+    -fx-background-color: -app-surface, -chip-overdue;
+    -fx-background-insets: 0, 0;
+}
+
+.chip-done .chip-title {
+    -fx-opacity: 0.55;
+}
+
+.chip-done .chip-title .text {
+    -fx-strikethrough: true;
+}
+
+.drive-breadcrumb {
+    -fx-padding: 4 14 8 14;
+}
+
+.crumb {
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+    -fx-padding: 3 8 3 8;
+    -fx-text-fill: -app-text-muted;
+}
+
+.crumb:hover {
+    -fx-background-color: -app-hover;
+    -fx-background-radius: 0;
+    -fx-text-fill: -app-text;
+}
+
+.crumb-current {
+    -fx-font-weight: bold;
+    -fx-padding: 3 8 3 8;
+    -fx-text-fill: -app-text;
+}
+
+.crumb-sep {
+    -fx-opacity: 0.6;
+    -fx-text-fill: -app-text-muted;
+}
+
+.drive-scroll,
+.drive-scroll > .viewport {
+    -fx-background-color: transparent;
+}
+
+.drive-content {
+    -fx-padding: 6 7 14 7;
+}
+
+.drive-card {
+    -fx-padding: 10;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-color: -app-line;
+    -fx-border-width: 1;
+    -fx-background-color: -app-surface;
+    -fx-cursor: hand;
+}
+
+.drive-card:hover {
+    -fx-border-color: -app-control-hover-border;
+    -fx-background-color: -app-control-hover;
+}
+
+.drive-card-selected,
+.drive-card-selected:hover {
+    -fx-border-color: -app-primary;
+    -fx-border-width: 2;
+    -fx-background-color: -app-selected-bg;
+}
+
+.drive-card-preview {
+    -fx-background-radius: 0;
+    -fx-background-color: -app-hover;
+}
+
+.drive-card-name {
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.drive-card-body {
+    -fx-padding: 8;
+}
+
+.drive-badge {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 3 8 3 8;
+    -fx-background-radius: 0;
+    -fx-text-fill: -app-badge-text;
+    -fx-background-color: -app-drive-default;
+}
+
+.drive-kind-folder { -fx-background-color: -app-drive-folder; }
+.drive-kind-doc { -fx-background-color: -app-drive-doc; }
+.drive-kind-sheet { -fx-background-color: -app-drive-sheet; }
+.drive-kind-slides { -fx-background-color: -app-drive-slides; }
+.drive-kind-pdf { -fx-background-color: -app-drive-pdf; }
+.drive-kind-image { -fx-background-color: -app-drive-image; }
+.drive-kind-video { -fx-background-color: -app-drive-video; }
+
+.button.drive-card-menu-button,
+.button.drive-card-menu-button:focused,
+.button.drive-card-menu-button:default {
+    -fx-background-color: -app-surface;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-border-color: -app-line;
+    -fx-border-radius: 0;
+    -fx-padding: 0 0 2 0;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+    -fx-alignment: CENTER;
+    -fx-cursor: hand;
+    -fx-effect: null;
+}
+
+.button.drive-card-menu-button:hover {
+    -fx-background-color: -app-control-hover;
+    -fx-border-color: -app-control-hover-border;
+}
+
+.button.drive-card-menu-button:pressed {
+    -fx-background-color: -app-control-pressed;
+}
+
+.drive-card-selected .button.drive-card-menu-button {
+    -fx-background-color: -app-surface;
+}
+
+.drive-card .drive-card-check {
+    -fx-opacity: 0;
+    -fx-background-color: -app-surface;
+    -fx-background-radius: 0;
+    -fx-padding: 3;
+}
+
+.drive-card:hover .drive-card-check,
+.drive-card-selected .drive-card-check,
+.selection-active .drive-card .drive-card-check {
+    -fx-opacity: 1;
+}
+
+.drive-card-busy {
+    -fx-background-color: -app-surface;
+    -fx-background-radius: 0;
+    -fx-opacity: 0.85;
+    -fx-alignment: CENTER;
+}
+
+.context-menu {
+    -fx-background-color: -app-line-strong, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 2;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 8, 0, 0, 2);
+}
+
+.context-menu .menu-item {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-padding: 7 24 7 12;
+    -fx-cursor: hand;
+}
+
+.context-menu .menu-item .label {
+    -fx-text-fill: -app-text;
+    -fx-font-size: 13px;
+}
+
+.context-menu .menu-item:focused,
+.context-menu .menu-item:hover {
+    -fx-background-color: -app-hover;
+}
+
+.context-menu .menu-item:focused .label,
+.context-menu .menu-item:hover .label {
+    -fx-text-fill: -app-text;
+}
+
+.context-menu .menu-item:disabled .label {
+    -fx-text-fill: -app-text-disabled;
+}
+
+.context-menu .menu-item:disabled:hover,
+.context-menu .menu-item:disabled:focused {
+    -fx-background-color: transparent;
+}
+
+.context-menu .separator .line {
+    -fx-border-color: -app-line transparent transparent transparent;
+    -fx-border-width: 1 0 0 0;
+}
+
+.context-menu .custom-menu-item,
+.context-menu .custom-menu-item:focused,
+.context-menu .custom-menu-item:hover {
+    -fx-background-color: transparent;
+}
+
+.context-menu .custom-menu-item .label {
+    -fx-text-fill: -app-text-muted;
+    -fx-font-size: 12px;
+}
+
+.context-menu,
+.context-menu .menu-item,
+.context-menu .menu-item:focused,
+.context-menu .menu-item:hover {
+    -fx-mark-color: -app-text;
+    -fx-mark-highlight-color: transparent;
+}
+
+.context-menu .menu-item:disabled {
+    -fx-mark-color: -app-text-disabled;
+}
+
+.context-menu .menu-item .accelerator-text,
+.context-menu .menu-item:focused .accelerator-text,
+.context-menu .menu-item:hover .accelerator-text {
+    -fx-text-fill: -app-text-muted;
+}
+
+.context-menu .menu-item:disabled .accelerator-text {
+    -fx-text-fill: -app-text-disabled;
+}
+
+.tooltip {
+    -fx-background-color: -app-line-strong, -app-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-text-fill: -app-text;
+    -fx-font-size: 12px;
+    -fx-padding: 6 10 6 10;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 6, 0, 0, 2);
+}
+
+.download-panel {
+    -fx-background-color: transparent;
+    -fx-padding: 12;
+    -fx-spacing: 10;
+}
+
+.download-row,
+.transfer-row {
+    -fx-background-color: -app-download-row-border, -app-download-row-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 12 14 12 14;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 6, 0, 0, 2);
+}
+
+.download-name,
+.transfer-name {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-download-name;
+}
+
+.download-status {
+    -fx-font-size: 12px;
+    -fx-text-fill: -app-download-status;
+}
+
+.download-progress,
+.transfer-progress {
+    -fx-pref-height: 4;
+    -fx-min-height: 4;
+    -fx-accent: -app-primary;
+}
+
+.download-progress > .track,
+.transfer-progress > .track {
+    -fx-background-color: -app-download-progress-track;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+.download-progress > .bar,
+.transfer-progress > .bar {
+    -fx-background-color: -app-primary;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 2;
+}
+
+.button.download-cancel,
+.button.download-cancel:focused,
+.button.transfer-cancel,
+.button.transfer-cancel:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-padding: 2 8 2 8;
+    -fx-font-size: 12px;
+    -fx-text-fill: -app-text-muted;
+    -fx-cursor: hand;
+    -fx-effect: null;
+}
+
+.button.download-cancel:hover,
+.button.transfer-cancel:hover,
+.button.transfer-cancel:pressed {
+    -fx-background-color: -app-danger-soft-bg;
+    -fx-text-fill: -app-rose;
+}
+
+.transfer-direction {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-primary;
+}
+
+.selection-bar {
+    -fx-padding: 6 12 6 12;
+    -fx-background-color: -app-selected-bg;
+    -fx-border-color: transparent transparent -app-line transparent;
+    -fx-border-width: 0 0 1 0;
+}
+
+.selection-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-selected-text;
+}
+
+.dialog-pane {
+    -fx-background-color: -app-surface;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: -app-text;
+}
+
+.dialog-pane .muted {
+    -fx-text-fill: -app-text-muted;
+}
+
+.alert-container {
+    -fx-background-color: -app-line-strong, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+}
+
+.alert-title {
+    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-size: 20px;
+    -fx-text-fill: -app-text;
+}
+
+.alert-container .muted {
+    -fx-text-fill: -app-text-muted;
+}
+
+.alert-container .error-text {
+    -fx-text-fill: -app-rose;
+}
+
+.alert-container .button.disabled,
+.alert-container .button.disabled:focused {
+    -fx-background-color: -app-control-border, -app-control-bg;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-text-fill: -app-text;
+    -fx-opacity: 1;
+}
+
+.alert-container .button.disabled:hover {
+    -fx-background-color: -app-control-hover-border, -app-control-hover;
+}
+
+.list-cell {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-text-fill: -app-text;
+    -fx-padding: 6 10 6 10;
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: -app-hover;
+}
+
+.list-cell:filled:selected,
+.list-cell:filled:selected:hover {
+    -fx-background-color: -app-selected-bg;
+    -fx-text-fill: -app-selected-text;
+}
+
+.combo-box-popup > .list-view {
+    -fx-background-color: -app-line-strong, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-padding: 2;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 8, 0, 0, 2);
+}
+
+.combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-text-fill: -app-text;
+}
+
+.date-picker-popup {
+    -fx-background-color: -app-line-strong, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 0, 0;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 8, 0, 0, 2);
+}
+
+.date-picker-popup > .month-year-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.date-picker-popup .label {
+    -fx-text-fill: -app-text;
+}
+
+.date-picker-popup .day-cell,
+.date-picker-popup .day-name-cell,
+.date-picker-popup .week-number-cell {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0;
+    -fx-text-fill: -app-text;
+}
+
+.date-picker-popup .day-name-cell,
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: -app-text-muted;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: -app-hover;
+}
+
+.date-picker-popup .day-cell:today {
+    -fx-background-color: -app-primary, -app-surface;
+    -fx-background-insets: 0, 2;
+    -fx-background-radius: 0, 0;
+}
+
+.date-picker-popup .day-cell:selected,
+.date-picker-popup .day-cell:selected:hover {
+    -fx-background-color: -app-primary;
+    -fx-background-insets: 0;
+    -fx-text-fill: -app-on-primary;
+}
+
+.date-picker-popup .day-cell:previous-month,
+.date-picker-popup .day-cell:next-month {
+    -fx-text-fill: -app-text-disabled;
+}
+
+.date-picker-popup .spinner .button {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: -app-text;
+}

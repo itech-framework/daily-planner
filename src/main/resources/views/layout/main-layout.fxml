@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.frameword.test.ui.layout.MainLayoutController" styleClass="app-shell">
+	<left>
+		<VBox fx:id="sidebar" styleClass="sidebar" spacing="6">
+			<padding>
+				<Insets top="12" right="10" bottom="10" left="10" />
+			</padding>
+			<Label text="Daily Planner" styleClass="brand" />
+			<Region prefHeight="8" minHeight="8" />
+			<Button fx:id="plannerButton" text="Today" maxWidth="Infinity" styleClass="nav-button" onAction="#onPlanner" />
+			<Button fx:id="calendarButton" text="Calendar" maxWidth="Infinity" styleClass="nav-button" onAction="#onCalendar" />
+			<Button fx:id="tasksButton" text="Tasks" maxWidth="Infinity" styleClass="nav-button" onAction="#onTasks" />
+			<Button fx:id="driveButton" text="Drive" maxWidth="Infinity" styleClass="nav-button" onAction="#onDrive" />
+			<Region VBox.vgrow="ALWAYS" />
+			<HBox styleClass="user-box" spacing="8" alignment="CENTER_LEFT">
+				<Label fx:id="avatarLabel" styleClass="avatar" />
+				<VBox spacing="0" HBox.hgrow="ALWAYS">
+					<Label fx:id="userNameLabel" styleClass="user-name" />
+					<Label fx:id="userEmailLabel" styleClass="muted" />
+				</VBox>
+			</HBox>
+			<HBox spacing="6">
+				<Button fx:id="themeButton" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="ghost-button" onAction="#onToggleTheme" />
+				<Button text="Sign out" maxWidth="Infinity" HBox.hgrow="ALWAYS" styleClass="ghost-button, danger-soft" onAction="#onSignOut" />
+			</HBox>
+		</VBox>
+	</left>
+	<center>
+		<StackPane fx:id="contentContainer" styleClass="content" />
+	</center>
+	<bottom>
+		<HBox styleClass="status-bar" alignment="CENTER_LEFT">
+			<Label fx:id="statusLabel" text="Ready" styleClass="muted" />
+		</HBox>
+	</bottom>
+</BorderPane>

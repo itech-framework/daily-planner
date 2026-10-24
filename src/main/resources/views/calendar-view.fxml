@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.frameword.test.ui.CalendarController" styleClass="page">
+	<fx:define>
+		<ToggleGroup fx:id="modeGroup" />
+	</fx:define>
+
+	<HBox styleClass="toolbar" spacing="6" alignment="CENTER_LEFT">
+		<Button text="Today" onAction="#onToday" />
+		<Button text="&#8249;" styleClass="icon-button" onAction="#onPrevious" />
+		<Button text="&#8250;" styleClass="icon-button" onAction="#onNext" />
+		<Label fx:id="titleLabel" styleClass="cal-title" />
+		<Region HBox.hgrow="ALWAYS" />
+		<ProgressIndicator fx:id="progress" visible="false" prefWidth="16" prefHeight="16" />
+		<Button text="+ New event" onAction="#onNewEvent" />
+		<Button fx:id="refreshButton" text="Refresh" onAction="#onRefresh" />
+		<HBox spacing="-1">
+			<ToggleButton fx:id="dayToggle" text="Day" toggleGroup="$modeGroup" styleClass="seg, seg-left" onAction="#onDayMode" />
+			<ToggleButton fx:id="weekToggle" text="Week" toggleGroup="$modeGroup" styleClass="seg, seg-center" onAction="#onWeekMode" />
+			<ToggleButton fx:id="monthToggle" text="Month" toggleGroup="$modeGroup" styleClass="seg, seg-right" onAction="#onMonthMode" />
+		</HBox>
+	</HBox>
+
+	<Label fx:id="warningLabel" styleClass="warning-box" wrapText="true" maxWidth="Infinity" visible="false" managed="false" />
+
+	<StackPane fx:id="contentHost" styleClass="cal-host" VBox.vgrow="ALWAYS" />
+</VBox>

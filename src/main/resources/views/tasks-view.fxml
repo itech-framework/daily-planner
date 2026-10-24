@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.frameword.test.ui.TasksController" spacing="12">
+	<padding>
+		<Insets top="24" right="28" bottom="24" left="28" />
+	</padding>
+
+	<HBox spacing="10" alignment="CENTER_LEFT">
+		<Label text="Tasks" styleClass="page-title" />
+		<Region HBox.hgrow="ALWAYS" />
+		<ProgressIndicator fx:id="progress" visible="false" prefWidth="22" prefHeight="22" />
+		<TextField fx:id="filterField" promptText="Filter tasks" prefWidth="180" />
+		<CheckBox fx:id="showCompletedBox" text="Show completed" />
+		<Button fx:id="refreshButton" text="Refresh" onAction="#onRefresh" />
+		<Button text="New task" styleClass="accent-button" onAction="#onNewTask" />
+	</HBox>
+
+	<ScrollPane fitToWidth="true" styleClass="page-scroll" VBox.vgrow="ALWAYS">
+		<VBox fx:id="listBox" spacing="8" />
+	</ScrollPane>
+</VBox>

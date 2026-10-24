@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	prefWidth="176" minWidth="176" maxWidth="176" styleClass="drive-card" onMouseClicked="#onClick">
+	<cursor>
+		<Cursor fx:constant="HAND" />
+	</cursor>
+	<VBox spacing="6">
+		<StackPane styleClass="drive-card-preview" prefHeight="88" minHeight="88">
+			<Label fx:id="badgeLabel" styleClass="drive-badge" />
+		</StackPane>
+		<Label fx:id="nameLabel" styleClass="drive-card-name" wrapText="true" maxWidth="Infinity" maxHeight="38" />
+		<Label fx:id="metaLabel" styleClass="muted" />
+	</VBox>
+	<CheckBox fx:id="selectBox" styleClass="drive-card-check" focusTraversable="false"
+		StackPane.alignment="TOP_LEFT" onAction="#onCheck" onMousePressed="#onCheckPressed" onMouseClicked="#onCheckClick">
+		<StackPane.margin>
+			<Insets top="6" left="6" />
+		</StackPane.margin>
+	</CheckBox>
+	<Button fx:id="menuButton" text="&#8942;" styleClass="drive-card-menu-button" focusTraversable="false"
+		minWidth="26" prefWidth="26" maxWidth="26" minHeight="26" prefHeight="26" maxHeight="26"
+		StackPane.alignment="TOP_RIGHT" onAction="#onMenu" onMouseClicked="#onMenuClick">
+		<StackPane.margin>
+			<Insets top="6" right="6" />
+		</StackPane.margin>
+	</Button>
+	<StackPane fx:id="busyPane" styleClass="drive-card-busy" visible="false" onMouseClicked="#onBusyClick">
+		<ProgressIndicator prefWidth="28" prefHeight="28" maxWidth="28" maxHeight="28" />
+	</StackPane>
+</StackPane>

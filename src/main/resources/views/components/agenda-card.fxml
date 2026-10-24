@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" spacing="12"
+	alignment="CENTER_LEFT" styleClass="agenda-card">
+	<CheckBox fx:id="doneBox" visible="false" managed="false" onAction="#onToggle" />
+	<VBox spacing="2" HBox.hgrow="ALWAYS">
+		<Label fx:id="titleLabel" styleClass="agenda-title" wrapText="true" />
+		<Label fx:id="metaLabel" styleClass="muted" />
+		<Label fx:id="detailLabel" styleClass="muted" wrapText="true" visible="false" managed="false" />
+	</VBox>
+	<Hyperlink fx:id="openLink" text="Open" visible="false" managed="false" onAction="#onOpen" />
+</HBox>

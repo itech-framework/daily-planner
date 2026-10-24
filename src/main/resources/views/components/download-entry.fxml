@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" spacing="6" styleClass="transfer-row">
+	<HBox alignment="CENTER_LEFT" spacing="8">
+		<Label fx:id="directionLabel" styleClass="transfer-direction" />
+		<Label fx:id="nameLabel" styleClass="transfer-name" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+		<Button fx:id="cancelButton" text="&#10005;" styleClass="transfer-cancel" focusTraversable="false"
+			onAction="#onCancel" />
+	</HBox>
+	<ProgressBar fx:id="bar" styleClass="transfer-progress" progress="-1" maxWidth="Infinity" />
+	<HBox spacing="8">
+		<Label fx:id="statusLabel" styleClass="muted" text="Starting&#8230;" />
+		<Region HBox.hgrow="ALWAYS" />
+		<Label fx:id="timeLabel" styleClass="muted" />
+	</HBox>
+</VBox>
