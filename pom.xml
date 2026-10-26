@@ -2,44 +2,40 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.flexitech.frameword.test</groupId>
-	<artifactId>api-test</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>API Testing</name>
+	<groupId>org.flexitech.framework.products</groupId>
+	<artifactId>daily-planner</artifactId>
+	<version>0.0.1</version>
+	<name>Daily Planner</name>
 
 	<properties>
 		<maven.compiler.source>17</maven.compiler.source>
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<flexi.version>1.0.12-RC1</flexi.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>io.github.itech-framework</groupId>
 			<artifactId>core</artifactId>
-			<version>1.0.12-SNAPSHOT</version>
+			<version>${flexi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.github.itech-framework</groupId>
 			<artifactId>api-client</artifactId>
-			<version>1.0.12-SNAPSHOT</version>
+			<version>${flexi.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.github.itech-framework</groupId>
 			<artifactId>java-fx</artifactId>
-			<version>1.0.12-SNAPSHOT</version>
+			<version>${flexi.version}</version>
 		</dependency>
-
-		<!-- Source: https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>1.18.46</version>
 			<scope>compile</scope>
 		</dependency>
-
-		<!-- Source:
-		https://mvnrepository.com/artifact/com.google.api-client/google-api-client -->
 		<dependency>
 			<groupId>com.google.api-client</groupId>
 			<artifactId>google-api-client</artifactId>
@@ -90,12 +86,29 @@
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>
-										org.flexitech.frameword.test.AppLauncher</mainClass>
+										org.flexitech.framework.products.daily_planner.AppLauncher</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>io.github.itech-framework</groupId>
+				<artifactId>flexitech-javafx-maven-plugin</artifactId>
+				<version>0.0.1</version>
+				<configuration>
+					<name>Daily Planner</name>
+					<vendor>Flexitech</vendor>
+					<mainClass>org.flexitech.framework.products.daily_planner.AppLauncher</mainClass>
+					<upgradeUuid>3f9c1a52-7d4e-4b8a-9e61-2c5d8f0a1b37</upgradeUuid>
+					<icon>src/main/resources/static/images/logo.ico</icon>
+					<perUser>true</perUser>
+					<copyLibs>false</copyLibs>
+					<modules>
+						java.base,java.desktop,java.instrument,java.logging,java.management,java.naming,java.net.http,java.prefs,java.rmi,java.scripting,java.security.jgss,java.sql,java.xml,jdk.charsets,jdk.compiler,jdk.crypto.ec,jdk.httpserver,jdk.jfr,jdk.localedata,jdk.naming.dns,jdk.unsupported,jdk.zipfs</modules>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>

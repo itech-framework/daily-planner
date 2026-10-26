@@ -1,6 +1,6 @@
 .root {
-    -fx-font-family: "Segoe UI", "Inter", "Helvetica Neue", sans-serif;
-    -fx-font-size: 13px;
+    -fx-font-family: "Segoe UI Variable Text", "Segoe UI", "Inter", "Helvetica Neue", sans-serif;
+    -fx-font-size: 14px;
     -fx-base: -app-bg;
     -fx-background: -app-bg;
     -fx-control-inner-background: -app-surface;
@@ -10,66 +10,67 @@
     -fx-primary: -app-primary;
     -fx-primary-dark: -app-primary-dark;
 
-    -app-primary: #0078D7;
-    -app-primary-dark: #005A9E;
-    -app-primary-hover: #106EBE;
-    -app-primary-pressed: #004578;
+    -app-primary: #0067C0;
+    -app-primary-dark: #003E92;
+    -app-primary-hover: #1975C5;
+    -app-primary-pressed: #3283CB;
     -app-on-primary: #FFFFFF;
-    -app-link: #0063B1;
-    -app-emerald: #107C10;
-    -app-rose: #E81123;
+    -app-link: #005FB8;
+    -app-emerald: #0F7B0F;
+    -app-rose: #C42B1C;
     -app-violet: #744DA9;
-    -app-now: #E81123;
+    -app-now: #C42B1C;
 
-    -app-bg: #F0F0F0;
-    -app-layer: #F7F7F7;
+    -app-bg: #F3F3F3;
+    -app-layer: #F9F9F9;
     -app-surface: #FFFFFF;
-    -app-hover: #E5E5E5;
-    -app-pressed: #CCCCCC;
+    -app-hover: #EAEAEA;
+    -app-pressed: #E0E0E0;
 
-    -app-control-bg: #E1E1E1;
-    -app-control-border: #ADADAD;
-    -app-control-hover: #E5F1FB;
-    -app-control-hover-border: -app-primary;
-    -app-control-pressed: #CCE4F7;
-    -app-control-pressed-border: #005499;
-    -app-input-border: #7A7A7A;
-    -app-input-border-hover: #171717;
+    -app-control-bg: #FDFDFD;
+    -app-control-border: #E5E5E5;
+    -app-control-hover: #F6F6F6;
+    -app-control-hover-border: #E0E0E0;
+    -app-control-pressed: #F0F0F0;
+    -app-control-pressed-border: #E5E5E5;
+    -app-input-border: #E5E5E5;
+    -app-input-bottom: #8A8A8A;
+    -app-input-border-hover: #E0E0E0;
 
-    -app-text: #000000;
-    -app-text-muted: #666666;
-    -app-text-disabled: #838383;
-    -app-line: #DADADA;
-    -app-line-strong: #ADADAD;
-    -app-selected-bg: #CCE4F7;
-    -app-selected-text: #000000;
-    -app-today-tint: rgba(0, 120, 215, 0.08);
-    -app-shadow: rgba(0, 0, 0, 0.26);
-    -app-disabled-bg: #CCCCCC;
+    -app-text: #1A1A1A;
+    -app-text-muted: #5F5F5F;
+    -app-text-disabled: #A0A0A0;
+    -app-line: #E5E5E5;
+    -app-line-strong: #D1D1D1;
+    -app-selected-bg: #DCEBF8;
+    -app-selected-text: #1A1A1A;
+    -app-today-tint: rgba(0, 103, 192, 0.06);
+    -app-shadow: rgba(0, 0, 0, 0.18);
+    -app-disabled-bg: #F5F5F5;
 
-    -app-scroll-thumb: #CDCDCD;
-    -app-scroll-thumb-hover: #A6A6A6;
-    -app-scroll-thumb-pressed: #606060;
+    -app-scroll-thumb: #9F9F9F;
+    -app-scroll-thumb-hover: #7A7A7A;
+    -app-scroll-thumb-pressed: #5E5E5E;
 
-    -chip-event: #CDE6F7;
-    -chip-task: #D5EDD5;
-    -chip-overdue: #FAD3D6;
+    -chip-event: #D6E8F8;
+    -chip-task: #DFF1DD;
+    -chip-overdue: #FDE7E9;
 
-    -app-indigo-border: #99C9EF;
-    -app-indigo-tint: #EBF4FC;
-    -app-indigo-text: #004E8C;
-    -app-rose-border: #F1A9AF;
-    -app-rose-tint: #FDEEEF;
+    -app-indigo-border: #CFE3F5;
+    -app-indigo-tint: #F0F6FC;
+    -app-indigo-text: #003E92;
+    -app-rose-border: #F4C7CB;
+    -app-rose-tint: #FDF3F4;
     -app-rose-text: #A4262C;
-    -app-amber-border: #F2D26B;
-    -app-amber-tint: #FFF4CE;
-    -app-amber-text: #5C4400;
-    -app-emerald-border: #9BD39B;
-    -app-emerald-tint: #E8F5E8;
+    -app-amber-border: #F5E1A0;
+    -app-amber-tint: #FFF8E1;
+    -app-amber-text: #5D4400;
+    -app-emerald-border: #B7E0B4;
+    -app-emerald-tint: #F1FAF0;
     -app-emerald-text: #0B5A0B;
 
     -app-danger-soft-bg: #FDE7E9;
-    -app-danger-soft-border: #F1AEB5;
+    -app-danger-soft-border: #F4C7CB;
     -app-danger-soft-text: #A4262C;
 
     -app-badge-text: #FFFFFF;
@@ -83,18 +84,18 @@
     -app-drive-video: #B3261E;
 
     -app-sidebar-bg: -app-bg;
-    -app-sidebar-border: -app-line;
+    -app-sidebar-border: transparent;
     -app-sidebar-text: -app-text;
     -app-sidebar-text-muted: -app-text-muted;
     -app-sidebar-brand: -app-text;
     -app-sidebar-hover: -app-hover;
     -app-sidebar-active-border: -app-primary;
-    -app-sidebar-active-tint: -app-pressed;
+    -app-sidebar-active-tint: -app-hover;
     -app-sidebar-active-text: -app-text;
     -app-sidebar-user-bg: -app-surface;
-    -app-sidebar-user-border: -app-line-strong;
+    -app-sidebar-user-border: -app-line;
 
-    -app-ghost-border: -app-control-border;
+    -app-ghost-border: -app-line-strong;
     -app-ghost-text: -app-text;
     -app-ghost-hover-bg: -app-control-hover;
     -app-ghost-hover-text: -app-text;
@@ -104,55 +105,60 @@
     -app-download-name: -app-text;
     -app-download-status: -app-text-muted;
     -app-download-progress-track: -app-line;
+    
+    -app-skeleton: #E6E6E6;
+    -app-skeleton-border: #E5E5E5;
 }
 
 .root.dark-mode {
-    -app-primary: #3A96DD;
-    -app-primary-dark: #1F6FB3;
-    -app-primary-hover: #5AA8E6;
-    -app-primary-pressed: #165A94;
-    -app-on-primary: #FFFFFF;
-    -app-link: #6CB8FF;
+    -app-primary: #60CDFF;
+    -app-primary-dark: #0078D4;
+    -app-primary-hover: #55BFEF;
+    -app-primary-pressed: #4AA8D8;
+    -app-on-primary: #000000;
+    -app-link: #99EBFF;
     -app-emerald: #6CCB5F;
-    -app-rose: #FF6B76;
-    -app-violet: #A78BDB;
-    -app-now: #FF5A64;
+    -app-rose: #FF99A4;
+    -app-violet: #B4A0FF;
+    -app-now: #FF6B76;
 
-    -app-bg: #282828;
-    -app-layer: #1F1F1F;
-    -app-surface: #2B2B2B;
-    -app-hover: #3A3A3A;
-    -app-pressed: #4A4A4A;
+    -app-bg: #202020;
+    -app-layer: #272727;
+    -app-surface: #2D2D2D;
+    -app-hover: #383838;
+    -app-pressed: #414141;
 
-    -app-control-bg: #3C3C3C;
-    -app-control-border: #6B6B6B;
-    -app-control-hover: #2B3F52;
-    -app-control-pressed: #234B6E;
-    -app-control-pressed-border: #1F6FB3;
-    -app-input-border: #8A8A8A;
-    -app-input-border-hover: #D0D0D0;
+    -app-control-bg: #323232;
+    -app-control-border: #3F3F3F;
+    -app-control-hover: #3A3A3A;
+    -app-control-hover-border: #454545;
+    -app-control-pressed: #2A2A2A;
+    -app-control-pressed-border: #3F3F3F;
+    -app-input-border: #3F3F3F;
+    -app-input-bottom: #9A9A9A;
+    -app-input-border-hover: #454545;
 
     -app-text: #FFFFFF;
-    -app-text-muted: #A8A8A8;
-    -app-text-disabled: #7A7A7A;
-    -app-line: #404040;
-    -app-line-strong: #6B6B6B;
-    -app-selected-bg: #1B4D7E;
+    -app-text-muted: #ADADAD;
+    -app-text-disabled: #6E6E6E;
+    -app-line: #3A3A3A;
+    -app-line-strong: #4D4D4D;
+    -app-selected-bg: #1F4A66;
     -app-selected-text: #FFFFFF;
-    -app-today-tint: rgba(108, 184, 255, 0.10);
-    -app-shadow: rgba(0, 0, 0, 0.6);
-    -app-disabled-bg: #3D3D3D;
+    -app-today-tint: rgba(96, 205, 255, 0.08);
+    -app-shadow: rgba(0, 0, 0, 0.5);
+    -app-disabled-bg: #2A2A2A;
 
-    -app-scroll-thumb: #5A5A5A;
-    -app-scroll-thumb-hover: #7A7A7A;
-    -app-scroll-thumb-pressed: #A0A0A0;
+    -app-scroll-thumb: #6F6F6F;
+    -app-scroll-thumb-hover: #8A8A8A;
+    -app-scroll-thumb-pressed: #A8A8A8;
 
-    -chip-event: rgba(108, 184, 255, 0.25);
-    -chip-task: rgba(108, 203, 95, 0.22);
-    -chip-overdue: rgba(255, 107, 118, 0.25);
+    -chip-event: #1F4A66;
+	-chip-task: #2A4A2C;
+	-chip-overdue: #4A2A30;
 
     -app-indigo-border: #2F5E8A;
-    -app-indigo-tint: #1B2A38;
+    -app-indigo-tint: #1E2A35;
     -app-indigo-text: #A6D4FF;
     -app-rose-border: #8B3A44;
     -app-rose-tint: #2E1C1F;
@@ -167,6 +173,9 @@
     -app-danger-soft-bg: #3A1D20;
     -app-danger-soft-border: #7A3039;
     -app-danger-soft-text: #FF99A4;
+    
+    -app-skeleton: #3E3E3E;
+    -app-skeleton-border: #3A3A3A;
 }
 
 .label {
@@ -191,8 +200,8 @@
 
 .sidebar {
     -fx-background-color: -app-sidebar-bg;
-    -fx-border-color: transparent -app-sidebar-border transparent transparent;
-    -fx-border-width: 0 1 0 0;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
 }
 
 .sidebar .label {
@@ -205,6 +214,7 @@
 
 .brand {
     -fx-font-size: 16px;
+    -fx-font-family: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", sans-serif;
     -fx-font-weight: bold;
     -fx-text-fill: -app-sidebar-brand;
     -fx-padding: 0 0 8 0;
@@ -213,7 +223,7 @@
 .user-box {
     -fx-background-color: -app-sidebar-user-border, -app-sidebar-user-bg;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 8, 7;
     -fx-padding: 8 10 8 10;
 }
 
@@ -242,16 +252,16 @@
 .nav-button,
 .button.nav-button {
     -fx-alignment: CENTER_LEFT;
-    -fx-padding: 9 12 9 16;
+    -fx-padding: 9 12 9 18;
     -fx-background-color: transparent;
-    -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-insets: 0 6 0 6;
+    -fx-background-radius: 4;
     -fx-border-color: transparent;
-    -fx-border-width: 0 0 0 4;
-    -fx-border-insets: 0;
-    -fx-border-radius: 0;
+    -fx-border-width: 0 0 0 3;
+    -fx-border-insets: 10 0 10 6;
+    -fx-border-radius: 2;
     -fx-effect: null;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
     -fx-text-fill: -app-sidebar-text;
     -fx-cursor: hand;
 }
@@ -278,8 +288,8 @@
 .button.nav-button.nav-active:hover,
 .button.nav-button.nav-active:focused {
     -fx-background-color: -app-sidebar-active-tint;
-    -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-insets: 0 6 0 6;
+    -fx-background-radius: 4;
     -fx-border-color: transparent transparent transparent -app-sidebar-active-border;
     -fx-text-fill: -app-sidebar-active-text;
     -fx-effect: null;
@@ -290,10 +300,10 @@
 .button:focused {
     -fx-background-color: -app-control-border, -app-control-bg;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 4, 3;
     -fx-text-fill: -app-text;
-    -fx-padding: 5 16 5 16;
-    -fx-font-size: 13px;
+    -fx-padding: 6 16 6 16;
+    -fx-font-size: 14px;
     -fx-effect: null;
     -fx-cursor: hand;
 }
@@ -306,13 +316,14 @@
 .button:pressed,
 .button:default:pressed {
     -fx-background-color: -app-control-pressed-border, -app-control-pressed;
+    -fx-text-fill: -app-text-muted;
 }
 
 .button:disabled {
     -fx-opacity: 1;
     -fx-text-fill: -app-text-disabled;
-    -fx-background-color: -app-disabled-bg;
-    -fx-background-insets: 0;
+    -fx-background-color: -app-control-border, -app-disabled-bg;
+    -fx-background-insets: 0, 1;
 }
 
 .ghost-button,
@@ -320,13 +331,13 @@
 .button.ghost-button:focused {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-border-color: -app-ghost-border;
     -fx-border-width: 1;
-    -fx-border-radius: 0;
+    -fx-border-radius: 4;
     -fx-text-fill: -app-ghost-text;
-    -fx-padding: 4 12 4 12;
-    -fx-font-size: 12px;
+    -fx-padding: 5 12 5 12;
+    -fx-font-size: 13px;
     -fx-effect: null;
     -fx-cursor: hand;
 }
@@ -354,9 +365,9 @@
 .button.dialog-action-button:focused {
     -fx-background-color: -app-primary;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-text-fill: -app-on-primary;
-    -fx-padding: 5 18 5 18;
+    -fx-padding: 6 18 6 18;
     -fx-effect: null;
     -fx-cursor: hand;
 }
@@ -392,8 +403,9 @@
 }
 
 .page-title {
-    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-family: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", sans-serif;
     -fx-font-size: 28px;
+    -fx-font-weight: bold;
     -fx-text-fill: -app-text;
 }
 
@@ -424,7 +436,7 @@
     -tile-text: -app-indigo-text;
     -fx-background-color: -tile-border, -tile-tint;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 8, 7;
     -fx-padding: 12 16 12 16;
     -fx-min-width: 140;
     -fx-pref-width: 160;
@@ -473,7 +485,7 @@
     -card-bg: -app-indigo-tint;
     -fx-background-color: -card-border, -card-bg;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 8, 7;
     -fx-padding: 10 14 10 14;
 }
 
@@ -500,7 +512,7 @@
 }
 
 .agenda-title {
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: -app-text;
 }
@@ -520,7 +532,7 @@
 .warning-box {
     -fx-background-color: -app-amber-border, -app-amber-tint;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 8, 7;
     -fx-padding: 10 14 10 14;
 }
 
@@ -540,9 +552,9 @@
 .text-area,
 .combo-box,
 .date-picker {
-    -fx-background-color: -app-input-border, -app-surface;
-    -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-color: -app-input-bottom, -app-input-border, -app-surface;
+    -fx-background-insets: 0, 0 0 1 0, 1 1 1 1;
+    -fx-background-radius: 4, 4, 3;
     -fx-border-color: transparent;
     -fx-text-fill: -app-text;
     -fx-prompt-text-fill: -app-text-muted;
@@ -558,7 +570,7 @@
 
 .text-area .content {
     -fx-background-color: -app-surface;
-    -fx-background-radius: 0;
+    -fx-background-radius: 3;
 }
 
 .text-field:hover,
@@ -566,7 +578,7 @@
 .text-area:hover,
 .combo-box:hover,
 .date-picker:hover {
-    -fx-background-color: -app-input-border-hover, -app-surface;
+    -fx-background-color: -app-input-bottom, -app-input-border-hover, -app-control-hover;
 }
 
 .text-field:focused,
@@ -574,9 +586,9 @@
 .text-area:focused,
 .combo-box:focused,
 .date-picker:focused {
-    -fx-background-color: -app-primary, -app-surface;
-    -fx-background-insets: 0, 2;
-    -fx-background-radius: 0, 0;
+    -fx-background-color: -app-primary, -app-primary, -app-surface;
+    -fx-background-insets: 0, 0, 1 1 2 1;
+    -fx-background-radius: 4, 4, 3;
     -fx-effect: null;
 }
 
@@ -610,22 +622,22 @@
 
 .check-box .box {
     -fx-background-color: -app-text-muted, -app-surface;
-    -fx-background-insets: 0, 2;
-    -fx-background-radius: 0, 0;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 4, 3;
     -fx-border-color: transparent;
     -fx-padding: 0.25em 0.25em 0.3em 0.3em;
     -fx-effect: null;
 }
 
 .check-box:hover .box {
-    -fx-background-color: -app-text, -app-surface;
+    -fx-background-color: -app-text, -app-control-hover;
 }
 
 .check-box:selected .box,
 .check-box:selected:focused .box {
     -fx-background-color: -app-primary;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-border-color: transparent;
 }
 
@@ -666,14 +678,22 @@
 
 .scroll-bar .thumb {
     -fx-background-color: -app-scroll-thumb;
-    -fx-background-radius: 0;
+    -fx-background-radius: 6;
 }
 
 .scroll-bar:vertical .thumb {
-    -fx-background-insets: 0 3 0 3;
+    -fx-background-insets: 0 4 0 4;
 }
 
 .scroll-bar:horizontal .thumb {
+    -fx-background-insets: 4 0 4 0;
+}
+
+.scroll-bar:vertical:hover .thumb {
+    -fx-background-insets: 0 3 0 3;
+}
+
+.scroll-bar:horizontal:hover .thumb {
     -fx-background-insets: 3 0 3 0;
 }
 
@@ -724,8 +744,9 @@
 }
 
 .login-title {
-    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-family: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", sans-serif;
     -fx-font-size: 28px;
+    -fx-font-weight: bold;
 }
 
 .toolbar {
@@ -738,8 +759,9 @@
 .toolbar .button {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
+    -fx-background-radius: 4;
     -fx-padding: 0 12 0 12;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
 }
 
 .toolbar .button:hover {
@@ -798,8 +820,9 @@
 }
 
 .cal-title {
-    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-family: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", sans-serif;
     -fx-font-size: 20px;
+    -fx-font-weight: bold;
     -fx-text-fill: -app-text;
     -fx-padding: 0 0 0 10;
 }
@@ -814,9 +837,9 @@
 .seg {
     -fx-background-color: -app-control-border, -app-control-bg;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 4, 3;
     -fx-padding: 4 14 4 14;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
     -fx-text-fill: -app-text;
     -fx-cursor: hand;
 }
@@ -838,6 +861,7 @@
 .seg:selected:focused {
     -fx-background-color: -app-primary;
     -fx-background-insets: 0;
+    -fx-background-radius: 4;
     -fx-text-fill: -app-on-primary;
 }
 
@@ -852,18 +876,18 @@
 }
 
 .weekday-label {
-    -fx-font-size: 10px;
+    -fx-font-size: 11px;
     -fx-font-weight: bold;
     -fx-text-fill: -app-text-muted;
 }
 
 .date-badge {
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
     -fx-text-fill: -app-text;
-    -fx-min-width: 26;
-    -fx-min-height: 26;
+    -fx-min-width: 28;
+    -fx-min-height: 28;
     -fx-alignment: CENTER;
-    -fx-background-radius: 0;
+    -fx-background-radius: 14;
 }
 
 .date-today {
@@ -883,7 +907,7 @@
 }
 
 .time-label {
-    -fx-font-size: 10px;
+    -fx-font-size: 11px;
     -fx-text-fill: -app-text-muted;
     -fx-padding: 0 6 0 0;
 }
@@ -936,7 +960,7 @@
 }
 
 .more-link {
-    -fx-font-size: 11px;
+    -fx-font-size: 12px;
     -fx-text-fill: -app-link;
     -fx-padding: 0 4 0 4;
     -fx-cursor: hand;
@@ -947,7 +971,7 @@
 }
 
 .chip {
-    -fx-padding: 1 5 1 7;
+    -fx-padding: 1 5 1 8;
     -fx-cursor: hand;
 }
 
@@ -966,16 +990,17 @@
 }
 
 .chip-event {
-    -fx-background-color: -chip-event;
-    -fx-background-radius: 0;
-    -fx-border-color: transparent transparent transparent -app-primary;
-    -fx-border-width: 0 0 0 3;
-    -fx-border-radius: 0;
+    -fx-background-color: -app-primary, -chip-event;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-background-radius: 4, 4;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
 }
 
 .chip-allday {
     -fx-background-color: -app-primary;
-    -fx-background-radius: 0;
+    -fx-background-insets: 0;
+    -fx-background-radius: 4;
 }
 
 .chip-allday .chip-title {
@@ -983,31 +1008,37 @@
 }
 
 .chip-task {
-    -fx-background-color: -chip-task;
-    -fx-background-radius: 0;
-    -fx-border-color: transparent transparent transparent -app-emerald;
-    -fx-border-width: 0 0 0 3;
-    -fx-border-radius: 0;
+    -fx-background-color: -app-emerald, -chip-task;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-background-radius: 4, 4;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
 }
 
 .chip-overdue {
-    -fx-background-color: -chip-overdue;
-    -fx-border-color: transparent transparent transparent -app-rose;
+    -fx-background-color: -app-rose, -chip-overdue;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-background-radius: 4, 4;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
 }
 
 .day-column .chip-event {
-    -fx-background-color: -app-surface, -chip-event;
-    -fx-background-insets: 0, 0;
+    -fx-background-color: -app-surface, -app-primary, -chip-event;
+    -fx-background-insets: 0, 0, 0 0 0 3;
+    -fx-background-radius: 4, 4, 4;
 }
 
 .day-column .chip-task {
-    -fx-background-color: -app-surface, -chip-task;
-    -fx-background-insets: 0, 0;
+    -fx-background-color: -app-surface, -app-emerald, -chip-task;
+    -fx-background-insets: 0, 0, 0 0 0 3;
+    -fx-background-radius: 4, 4, 4;
 }
 
 .day-column .chip-overdue {
-    -fx-background-color: -app-surface, -chip-overdue;
-    -fx-background-insets: 0, 0;
+    -fx-background-color: -app-surface, -app-rose, -chip-overdue;
+    -fx-background-insets: 0, 0, 0 0 0 3;
+    -fx-background-radius: 4, 4, 4;
 }
 
 .chip-done .chip-title {
@@ -1024,6 +1055,7 @@
 
 .crumb {
     -fx-background-color: transparent;
+    -fx-background-radius: 4;
     -fx-cursor: hand;
     -fx-padding: 3 8 3 8;
     -fx-text-fill: -app-text-muted;
@@ -1031,7 +1063,7 @@
 
 .crumb:hover {
     -fx-background-color: -app-hover;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-text-fill: -app-text;
 }
 
@@ -1057,8 +1089,8 @@
 
 .drive-card {
     -fx-padding: 10;
-    -fx-background-radius: 0;
-    -fx-border-radius: 0;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
     -fx-border-color: -app-line;
     -fx-border-width: 1;
     -fx-background-color: -app-surface;
@@ -1066,7 +1098,7 @@
 }
 
 .drive-card:hover {
-    -fx-border-color: -app-control-hover-border;
+    -fx-border-color: -app-line-strong;
     -fx-background-color: -app-control-hover;
 }
 
@@ -1078,7 +1110,7 @@
 }
 
 .drive-card-preview {
-    -fx-background-radius: 0;
+    -fx-background-radius: 6;
     -fx-background-color: -app-hover;
 }
 
@@ -1095,7 +1127,7 @@
     -fx-font-size: 12px;
     -fx-font-weight: bold;
     -fx-padding: 3 8 3 8;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-text-fill: -app-badge-text;
     -fx-background-color: -app-drive-default;
 }
@@ -1113,9 +1145,9 @@
 .button.drive-card-menu-button:default {
     -fx-background-color: -app-surface;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-border-color: -app-line;
-    -fx-border-radius: 0;
+    -fx-border-radius: 4;
     -fx-padding: 0 0 2 0;
     -fx-font-size: 16px;
     -fx-font-weight: bold;
@@ -1127,7 +1159,7 @@
 
 .button.drive-card-menu-button:hover {
     -fx-background-color: -app-control-hover;
-    -fx-border-color: -app-control-hover-border;
+    -fx-border-color: -app-line-strong;
 }
 
 .button.drive-card-menu-button:pressed {
@@ -1141,7 +1173,7 @@
 .drive-card .drive-card-check {
     -fx-opacity: 0;
     -fx-background-color: -app-surface;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-padding: 3;
 }
 
@@ -1153,7 +1185,7 @@
 
 .drive-card-busy {
     -fx-background-color: -app-surface;
-    -fx-background-radius: 0;
+    -fx-background-radius: 8;
     -fx-opacity: 0.85;
     -fx-alignment: CENTER;
 }
@@ -1161,21 +1193,22 @@
 .context-menu {
     -fx-background-color: -app-line-strong, -app-surface;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
-    -fx-padding: 2;
-    -fx-effect: dropshadow(gaussian, -app-shadow, 8, 0, 0, 2);
+    -fx-background-radius: 8, 7;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 16, 0, 0, 4);
 }
 
 .context-menu .menu-item {
     -fx-background-color: transparent;
-    -fx-background-radius: 0;
+    -fx-background-insets: 1 2 1 2;
+    -fx-background-radius: 4;
     -fx-padding: 7 24 7 12;
     -fx-cursor: hand;
 }
 
 .context-menu .menu-item .label {
     -fx-text-fill: -app-text;
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
 }
 
 .context-menu .menu-item:focused,
@@ -1236,13 +1269,13 @@
 }
 
 .tooltip {
-    -fx-background-color: -app-line-strong, -app-bg;
+    -fx-background-color: -app-line-strong, -app-surface;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 5, 4;
     -fx-text-fill: -app-text;
     -fx-font-size: 12px;
     -fx-padding: 6 10 6 10;
-    -fx-effect: dropshadow(gaussian, -app-shadow, 6, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, -app-shadow, 10, 0, 0, 2);
 }
 
 .download-panel {
@@ -1255,14 +1288,14 @@
 .transfer-row {
     -fx-background-color: -app-download-row-border, -app-download-row-bg;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 8, 7;
     -fx-padding: 12 14 12 14;
-    -fx-effect: dropshadow(gaussian, -app-shadow, 6, 0, 0, 2);
+    -fx-effect: dropshadow(gaussian, -app-shadow, 8, 0, 0, 2);
 }
 
 .download-name,
 .transfer-name {
-    -fx-font-size: 13px;
+    -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: -app-download-name;
 }
@@ -1283,14 +1316,14 @@
 .transfer-progress > .track {
     -fx-background-color: -app-download-progress-track;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 2;
 }
 
 .download-progress > .bar,
 .transfer-progress > .bar {
     -fx-background-color: -app-primary;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 2;
     -fx-padding: 2;
 }
 
@@ -1300,7 +1333,7 @@
 .button.transfer-cancel:focused {
     -fx-background-color: transparent;
     -fx-background-insets: 0;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-padding: 2 8 2 8;
     -fx-font-size: 12px;
     -fx-text-fill: -app-text-muted;
@@ -1348,12 +1381,13 @@
 .alert-container {
     -fx-background-color: -app-line-strong, -app-surface;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 8, 7;
 }
 
 .alert-title {
-    -fx-font-family: "Segoe UI Light", "Segoe UI", sans-serif;
+    -fx-font-family: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", sans-serif;
     -fx-font-size: 20px;
+    -fx-font-weight: bold;
     -fx-text-fill: -app-text;
 }
 
@@ -1369,7 +1403,7 @@
 .alert-container .button.disabled:focused {
     -fx-background-color: -app-control-border, -app-control-bg;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 4, 3;
     -fx-text-fill: -app-text;
     -fx-opacity: 1;
 }
@@ -1380,7 +1414,8 @@
 
 .list-cell {
     -fx-background-color: transparent;
-    -fx-background-radius: 0;
+    -fx-background-insets: 1 4 1 4;
+    -fx-background-radius: 4;
     -fx-text-fill: -app-text;
     -fx-padding: 6 10 6 10;
 }
@@ -1398,9 +1433,9 @@
 .combo-box-popup > .list-view {
     -fx-background-color: -app-line-strong, -app-surface;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
-    -fx-padding: 2;
-    -fx-effect: dropshadow(gaussian, -app-shadow, 8, 0, 0, 2);
+    -fx-background-radius: 8, 7;
+    -fx-padding: 4;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 16, 0, 0, 4);
 }
 
 .combo-box-popup > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
@@ -1410,8 +1445,8 @@
 .date-picker-popup {
     -fx-background-color: -app-line-strong, -app-surface;
     -fx-background-insets: 0, 1;
-    -fx-background-radius: 0, 0;
-    -fx-effect: dropshadow(gaussian, -app-shadow, 8, 0, 0, 2);
+    -fx-background-radius: 8, 7;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 16, 0, 0, 4);
 }
 
 .date-picker-popup > .month-year-pane {
@@ -1427,7 +1462,7 @@
 .date-picker-popup .day-name-cell,
 .date-picker-popup .week-number-cell {
     -fx-background-color: transparent;
-    -fx-background-radius: 0;
+    -fx-background-radius: 4;
     -fx-text-fill: -app-text;
 }
 
@@ -1443,13 +1478,14 @@
 .date-picker-popup .day-cell:today {
     -fx-background-color: -app-primary, -app-surface;
     -fx-background-insets: 0, 2;
-    -fx-background-radius: 0, 0;
+    -fx-background-radius: 4, 3;
 }
 
 .date-picker-popup .day-cell:selected,
 .date-picker-popup .day-cell:selected:hover {
     -fx-background-color: -app-primary;
     -fx-background-insets: 0;
+    -fx-background-radius: 4;
     -fx-text-fill: -app-on-primary;
 }
 
@@ -1465,4 +1501,159 @@
 .date-picker-popup .spinner .button .left-arrow,
 .date-picker-popup .spinner .button .right-arrow {
     -fx-background-color: -app-text;
+}
+
+.day-holiday {
+    -fx-background-color: -app-rose-tint;
+}
+
+.month-cell.day-holiday:hover {
+    -fx-background-color: -app-danger-soft-bg;
+}
+
+.day-holiday.day-column-today,
+.day-holiday.month-cell-today {
+    -fx-background-color: -app-rose-tint, -app-today-tint;
+}
+
+.chip-holiday {
+    -fx-background-color: -app-rose, -chip-overdue;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-background-radius: 4, 4;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: -app-rose-text;
+    -fx-cursor: default;
+}
+
+.chip-observance {
+    -fx-background-color: -app-amber-border, -app-amber-tint;
+    -fx-background-insets: 0, 0 0 0 3;
+    -fx-background-radius: 4, 4;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-text-fill: -app-amber-text;
+    -fx-cursor: default;
+}
+
+.tile-link {
+    -fx-cursor: hand;
+}
+
+.tile-link:hover {
+    -fx-opacity: 0.9;
+}
+
+.banner {
+    -fx-background-color: -app-line-strong, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8, 7;
+    -fx-padding: 10 14 10 14;
+}
+
+.banner-red {
+    -fx-background-color: -app-rose-border, -app-rose-tint;
+}
+
+.banner-title {
+    -fx-font-weight: bold;
+}
+
+.banner-red .banner-title {
+    -fx-text-fill: -app-rose-text;
+}
+
+.next-up {
+    -fx-background-color: -app-indigo-border, -app-indigo-tint;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8, 7;
+    -fx-padding: 12 16 12 16;
+}
+
+.next-up .muted {
+    -fx-text-fill: -app-indigo-text;
+}
+
+.next-up-countdown {
+    -fx-font-size: 18px;
+    -fx-text-fill: -app-indigo-text;
+}
+
+.side-card {
+    -fx-background-color: -app-line, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8, 7;
+    -fx-padding: 12 14 12 14;
+}
+
+.drive-row {
+    -fx-padding: 6 6 6 6;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.drive-row:hover {
+    -fx-background-color: -app-control-hover;
+}
+
+.storage-bar {
+    -fx-pref-height: 6;
+    -fx-min-height: 6;
+    -fx-accent: -app-primary;
+}
+
+.storage-bar > .track {
+    -fx-background-color: -app-line;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3;
+}
+
+.storage-bar > .bar {
+    -fx-background-color: -app-primary;
+    -fx-background-insets: 0;
+    -fx-background-radius: 3;
+    -fx-padding: 3;
+}
+
+.storage-full > .bar {
+    -fx-background-color: -app-rose;
+}
+
+.toast-container.transfer-toast .toast-title {
+    -fx-font-size: 13px;
+}
+
+.toast-container.transfer-toast .toast-message {
+    -fx-font-size: 12px;
+    -fx-text-fill: derive(-fx-text-color, 30%);
+}
+
+.skeleton-card {
+    -fx-background-color: -app-skeleton-border, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8, 7;
+    -fx-padding: 12 14 12 14;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.side-card .skeleton-card {
+    -fx-background-color: -app-skeleton-border, transparent;
+    -fx-padding: 8 10 8 10;
+}
+
+.skeleton-block {
+    -fx-background-color: -app-skeleton;
+    -fx-background-radius: 6;
+}
+
+.label.skeleton-count {
+    -fx-text-fill: transparent;
+    -fx-background-color: -app-skeleton;
+    -fx-background-radius: 6;
+}
+
+.tile .label.skeleton-count {
+    -fx-text-fill: transparent;
+    -fx-background-color: -tile-border;
+    -fx-background-radius: 6;
 }

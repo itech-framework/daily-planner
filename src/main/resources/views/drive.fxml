@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="org.flexitech.frameword.test.ui.DriveController" styleClass="page">
+	fx:controller="org.flexitech.framework.products.daily_planner.ui.DriveController" styleClass="page">
 	<fx:define>
 		<ToggleGroup fx:id="sectionGroup" />
 	</fx:define>

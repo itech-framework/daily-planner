@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="org.flexitech.frameword.test.ui.PlannerController" fitToWidth="true" styleClass="page-scroll">
+	fx:controller="org.flexitech.framework.products.daily_planner.ui.PlannerController" fitToWidth="true" styleClass="page-scroll">
 	<VBox spacing="12">
 		<padding>
 			<Insets top="24" right="28" bottom="24" left="28" />
@@ -22,20 +22,30 @@
 			<Button fx:id="refreshButton" text="Refresh" onAction="#onRefresh" />
 		</HBox>
 
+		<VBox fx:id="banner" styleClass="banner" spacing="2" visible="false" managed="false">
+			<Label fx:id="bannerTitle" styleClass="banner-title" wrapText="true" />
+			<Label fx:id="bannerNext" styleClass="muted" wrapText="true" />
+		</VBox>
+
+		<HBox spacing="8" alignment="CENTER_LEFT">
+			<Button text="New event" onAction="#onNewEvent" styleClass="accent-button" />
+			<Button text="Upload file" onAction="#onUpload" />
+		</HBox>
+
 		<HBox spacing="14">
-			<VBox styleClass="tile, tile-indigo">
+			<VBox styleClass="tile, tile-indigo, tile-link" onMouseClicked="#onOpenCalendar">
 				<Label fx:id="eventsCount" styleClass="tile-count" text="0" />
 				<Label text="Events today" styleClass="muted" />
 			</VBox>
-			<VBox styleClass="tile, tile-rose">
+			<VBox styleClass="tile, tile-rose, tile-link" onMouseClicked="#onOpenCalendar">
 				<Label fx:id="overdueCount" styleClass="tile-count" text="0" />
 				<Label text="Overdue" styleClass="muted" />
 			</VBox>
-			<VBox styleClass="tile, tile-amber">
+			<VBox styleClass="tile, tile-amber, tile-link" onMouseClicked="#onOpenCalendar">
 				<Label fx:id="todayCount" styleClass="tile-count" text="0" />
 				<Label text="Due today" styleClass="muted" />
 			</VBox>
-			<VBox styleClass="tile, tile-emerald">
+			<VBox styleClass="tile, tile-emerald, tile-link" onMouseClicked="#onOpenCalendar">
 				<Label fx:id="upcomingCount" styleClass="tile-count" text="0" />
 				<Label text="Upcoming" styleClass="muted" />
 			</VBox>
@@ -43,16 +53,45 @@
 
 		<VBox fx:id="warningBox" styleClass="warning-box" spacing="4" visible="false" managed="false" />
 
-		<Label text="Events today" styleClass="section-title" />
-		<VBox fx:id="eventsBox" spacing="8" />
+		<HBox spacing="24" alignment="TOP_LEFT">
+			<VBox spacing="12" HBox.hgrow="ALWAYS">
+				<VBox fx:id="nextUpCard" styleClass="next-up" spacing="4" visible="false" managed="false">
+					<Label text="NEXT UP" styleClass="muted" />
+					<Label fx:id="nextUpTitle" styleClass="agenda-title" wrapText="true" />
+					<Label fx:id="nextUpWhen" styleClass="muted" />
+					<HBox spacing="8" alignment="CENTER_LEFT">
+						<Label fx:id="nextUpCountdown" styleClass="next-up-countdown" />
+						<Region HBox.hgrow="ALWAYS" />
+						<Button fx:id="nextUpButton" text="Open" onAction="#onOpenNextUp" styleClass="accent-button" />
+					</HBox>
+				</VBox>
 
-		<Label text="Overdue" styleClass="section-title" />
-		<VBox fx:id="overdueBox" spacing="8" />
+				<Label text="Events today" styleClass="section-title" />
+				<VBox fx:id="eventsBox" spacing="8" />
 
-		<Label text="Due today" styleClass="section-title" />
-		<VBox fx:id="todayBox" spacing="8" />
+				<Label text="Overdue" styleClass="section-title" />
+				<VBox fx:id="overdueBox" spacing="8" />
 
-		<Label text="Upcoming" styleClass="section-title" />
-		<VBox fx:id="upcomingBox" spacing="8" />
+				<Label text="Due today" styleClass="section-title" />
+				<VBox fx:id="todayBox" spacing="8" />
+
+				<Label text="Upcoming" styleClass="section-title" />
+				<VBox fx:id="upcomingBox" spacing="8" />
+			</VBox>
+
+			<VBox spacing="12" minWidth="300" prefWidth="340" maxWidth="340">
+				<Label text="Drive" styleClass="section-title" />
+				<VBox styleClass="side-card" spacing="10">
+					<VBox spacing="4">
+						<Label fx:id="storageLabel" styleClass="muted" visible="false" managed="false" />
+						<ProgressBar fx:id="storageBar" styleClass="storage-bar" maxWidth="Infinity" progress="0"
+							visible="false" managed="false" />
+					</VBox>
+					<Label text="Recent files" styleClass="agenda-title" />
+					<VBox fx:id="recentBox" spacing="2" />
+					<Hyperlink text="Open Drive" onAction="#onOpenDrive" />
+				</VBox>
+			</VBox>
+		</HBox>
 	</VBox>
 </ScrollPane>

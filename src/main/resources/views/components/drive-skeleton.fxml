@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" spacing="10"
+	styleClass="skeleton-card">
+	<Region styleClass="skeleton-block" minWidth="26" prefWidth="26" maxWidth="26" minHeight="26"
+		prefHeight="26" maxHeight="26" />
+	<VBox spacing="6" HBox.hgrow="ALWAYS">
+		<Region styleClass="skeleton-block" minWidth="170" prefWidth="170" maxWidth="170" minHeight="12"
+			prefHeight="12" maxHeight="12" />
+		<Region styleClass="skeleton-block" minWidth="90" prefWidth="90" maxWidth="90" minHeight="9"
+			prefHeight="9" maxHeight="9" />
+	</VBox>
+</HBox>

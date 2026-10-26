@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
-	<Appenders>
+<Configuration shutdownHook="disable">
+<Appenders>
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} %-5level [%t] %c{1} - %msg%n" />
 		</Console>
-		<RollingFile name="File" fileName="logs/planner.log" filePattern="logs/planner-%d{yyyy-MM-dd}.log.gz">
+		<RollingFile name="File" fileName="D:/logs/planner/planner.log" filePattern="planner-%d{yyyy-MM-dd}.log.gz">
 			<PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%t] %c - %msg%n" />
 			<Policies>
 				<TimeBasedTriggeringPolicy />

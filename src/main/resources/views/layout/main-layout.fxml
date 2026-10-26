@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane fx:id="rootPane" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="org.flexitech.frameword.test.ui.layout.MainLayoutController" styleClass="app-shell">
+	fx:controller="org.flexitech.framework.products.daily_planner.ui.layout.MainLayoutController" styleClass="app-shell">
 	<left>
 		<VBox fx:id="sidebar" styleClass="sidebar" spacing="6">
 			<padding>
