@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" styleClass="weather-card"
+	spacing="14">
+	<HBox alignment="CENTER_LEFT" spacing="8">
+		<Label fx:id="locationLabel" styleClass="weather-location" />
+		<Region HBox.hgrow="ALWAYS" />
+		<Label fx:id="updatedLabel" styleClass="muted" />
+	</HBox>
+
+	<Label fx:id="warningLabel" styleClass="weather-warning" wrapText="true" visible="false" managed="false"
+		text="A VPN may be on. This location comes from your IP address and may not be where you are." />
+
+	<HBox alignment="CENTER_LEFT" spacing="8">
+		<VBox spacing="2">
+			<Label fx:id="temperatureLabel" styleClass="weather-temp" />
+			<Label fx:id="descriptionLabel" styleClass="weather-desc" wrapText="true" />
+			<Label fx:id="feelsLabel" styleClass="muted" />
+		</VBox>
+		<Region HBox.hgrow="ALWAYS" />
+		<Label fx:id="iconLabel" styleClass="weather-icon" />
+	</HBox>
+
+	<HBox styleClass="weather-stats" alignment="CENTER">
+		<VBox styleClass="weather-stat" alignment="CENTER" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+			<Label fx:id="humidityLabel" styleClass="weather-stat-value" />
+			<Label text="Humidity" styleClass="weather-stat-caption" />
+		</VBox>
+		<VBox styleClass="weather-stat" alignment="CENTER" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+			<Label fx:id="windLabel" styleClass="weather-stat-value" />
+			<Label text="Wind" styleClass="weather-stat-caption" />
+		</VBox>
+		<VBox styleClass="weather-stat" alignment="CENTER" HBox.hgrow="ALWAYS" maxWidth="Infinity">
+			<Label fx:id="rainLabel" styleClass="weather-stat-value" />
+			<Label text="Rain today" styleClass="weather-stat-caption" />
+		</VBox>
+	</HBox>
+
+	<Region styleClass="weather-divider" />
+
+	<TitledPane fx:id="forecastPane" text="Forecast" expanded="false" animated="true" styleClass="weather-forecast-pane">
+		<content>
+			<VBox fx:id="forecastBox" spacing="2" />
+		</content>
+	</TitledPane>
+
+	<Hyperlink fx:id="attributionLink" text="Weather data by Open-Meteo.com" styleClass="weather-attribution" />
+</VBox>

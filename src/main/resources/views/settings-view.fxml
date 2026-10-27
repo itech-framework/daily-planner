@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.flexitech.framework.products.daily_planner.ui.SettingsController" styleClass="page-scroll" fitToWidth="true" hbarPolicy="NEVER">
+	<VBox styleClass="page" spacing="8">
+		<padding>
+			<Insets top="24" right="28" bottom="24" left="28" />
+		</padding>
+		<HBox alignment="CENTER_LEFT" spacing="10">
+			<VBox spacing="2">
+				<Label styleClass="page-title" text="Settings" />
+				<Label styleClass="muted" text="Customize the app to suit your needs. Your changes take effect after you press Save." />
+			</VBox>
+			<Region HBox.hgrow="ALWAYS" />
+			<ProgressIndicator fx:id="progress" prefWidth="22" prefHeight="22" visible="false" managed="false" />
+		</HBox>
+		<VBox fx:id="sectionsBox" spacing="2" />
+		<HBox styleClass="settings-actions" alignment="CENTER_LEFT" spacing="10">
+			<Button fx:id="saveButton" styleClass="accent-button" text="Save" onAction="#onSave" />
+			<Button fx:id="revertButton" styleClass="ghost-button" text="Undo changes" onAction="#onRevert" />
+			<Region HBox.hgrow="ALWAYS" />
+			<Button fx:id="resetAllButton" styleClass="ghost-button, danger-soft" text="Restore all defaults" onAction="#onResetAll" />
+		</HBox>
+	</VBox>
+</ScrollPane>

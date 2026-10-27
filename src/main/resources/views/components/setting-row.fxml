@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" styleClass="setting-row" spacing="4">
+	<HBox alignment="CENTER_LEFT" spacing="8">
+		<Label fx:id="nameLabel" styleClass="setting-name" />
+		<Label fx:id="overriddenLabel" styleClass="setting-badge" text="Overridden" visible="false" managed="false" />
+		<Region HBox.hgrow="ALWAYS" />
+		<Button fx:id="resetButton" styleClass="ghost-button, setting-reset" text="Reset" onAction="#onReset" />
+	</HBox>
+	<HBox alignment="CENTER_LEFT" spacing="8">
+		<TextField fx:id="input" maxWidth="Infinity" HBox.hgrow="ALWAYS" />
+		<Button fx:id="browseButton" styleClass="ghost-button" text="Browse..." onAction="#onBrowse" visible="false" managed="false" />
+	</HBox>
+	<Label fx:id="hintLabel" styleClass="muted" wrapText="true" maxWidth="Infinity" />
+	<Label fx:id="defaultLabel" styleClass="muted" />
+</VBox>

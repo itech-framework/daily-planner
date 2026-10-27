@@ -108,74 +108,94 @@
     
     -app-skeleton: #E6E6E6;
     -app-skeleton-border: #E5E5E5;
+    -app-weather-top: #EAF3FC;
+    -app-weather-bottom: #FFFFFF;
+    -app-weather-sun: #D98E00;
+    -app-weather-moon: #5D6BB0;
+    -app-weather-partly: #C98A1B;
+    -app-weather-cloud: #6B7A90;
+    -app-weather-fog: #8A94A3;
+    -app-weather-rain: #2F7FD1;
+    -app-weather-snow: #4A9FD0;
+    -app-weather-storm: #7B52C8;
 }
 
 .root.dark-mode {
-    -app-primary: #60CDFF;
-    -app-primary-dark: #0078D4;
-    -app-primary-hover: #55BFEF;
-    -app-primary-pressed: #4AA8D8;
-    -app-on-primary: #000000;
-    -app-link: #99EBFF;
-    -app-emerald: #6CCB5F;
-    -app-rose: #FF99A4;
-    -app-violet: #B4A0FF;
-    -app-now: #FF6B76;
+    -app-primary: #6EA8FF;
+    -app-primary-dark: #3A6FD8;
+    -app-primary-hover: #8DB9FF;
+    -app-primary-pressed: #5290F0;
+    -app-on-primary: #0A1020;
+    -app-link: #8CC4FF;
+    -app-emerald: #4ADE9A;
+    -app-rose: #FF7A93;
+    -app-violet: #B69CFF;
+    -app-now: #FF6B8A;
 
-    -app-bg: #202020;
-    -app-layer: #272727;
-    -app-surface: #2D2D2D;
-    -app-hover: #383838;
-    -app-pressed: #414141;
+    -app-bg: #121826;
+    -app-layer: #171F33;
+    -app-surface: #1E2940;
+    -app-hover: #2A3858;
+    -app-pressed: #334468;
 
-    -app-control-bg: #323232;
-    -app-control-border: #3F3F3F;
-    -app-control-hover: #3A3A3A;
-    -app-control-hover-border: #454545;
-    -app-control-pressed: #2A2A2A;
-    -app-control-pressed-border: #3F3F3F;
-    -app-input-border: #3F3F3F;
-    -app-input-bottom: #9A9A9A;
-    -app-input-border-hover: #454545;
+    -app-control-bg: #243050;
+    -app-control-border: #34456B;
+    -app-control-hover: #2D3C60;
+    -app-control-hover-border: #405485;
+    -app-control-pressed: #1B2540;
+    -app-control-pressed-border: #34456B;
+    -app-input-border: #34456B;
+    -app-input-bottom: #8FA3CC;
+    -app-input-border-hover: #405485;
 
-    -app-text: #FFFFFF;
-    -app-text-muted: #ADADAD;
-    -app-text-disabled: #6E6E6E;
-    -app-line: #3A3A3A;
-    -app-line-strong: #4D4D4D;
-    -app-selected-bg: #1F4A66;
+    -app-text: #F1F5FF;
+    -app-text-muted: #A8B6D4;
+    -app-text-disabled: #63718F;
+    -app-line: #2A3757;
+    -app-line-strong: #3B4C75;
+    -app-selected-bg: #27487E;
     -app-selected-text: #FFFFFF;
-    -app-today-tint: rgba(96, 205, 255, 0.08);
-    -app-shadow: rgba(0, 0, 0, 0.5);
-    -app-disabled-bg: #2A2A2A;
+    -app-today-tint: rgba(110, 168, 255, 0.10);
+    -app-shadow: rgba(3, 6, 16, 0.55);
+    -app-disabled-bg: #1A2338;
 
-    -app-scroll-thumb: #6F6F6F;
-    -app-scroll-thumb-hover: #8A8A8A;
-    -app-scroll-thumb-pressed: #A8A8A8;
+    -app-scroll-thumb: #4C5E88;
+    -app-scroll-thumb-hover: #657BAE;
+    -app-scroll-thumb-pressed: #849ACB;
 
-    -chip-event: #1F4A66;
-	-chip-task: #2A4A2C;
-	-chip-overdue: #4A2A30;
+    -chip-event: #23406E;
+    -chip-task: #1F4A3E;
+    -chip-overdue: #4D2740;
 
-    -app-indigo-border: #2F5E8A;
-    -app-indigo-tint: #1E2A35;
-    -app-indigo-text: #A6D4FF;
-    -app-rose-border: #8B3A44;
-    -app-rose-tint: #2E1C1F;
-    -app-rose-text: #FFB3BB;
-    -app-amber-border: #8A6A1E;
-    -app-amber-tint: #2C2512;
-    -app-amber-text: #FCD34D;
-    -app-emerald-border: #2E7A2E;
-    -app-emerald-tint: #1B2B1B;
-    -app-emerald-text: #9BE08F;
+    -app-indigo-border: #3A5FA8;
+    -app-indigo-tint: #1B2A4A;
+    -app-indigo-text: #B5D2FF;
+    -app-rose-border: #94415C;
+    -app-rose-tint: #2E1A2B;
+    -app-rose-text: #FFB8CA;
+    -app-amber-border: #98702A;
+    -app-amber-tint: #2E2616;
+    -app-amber-text: #FFD98A;
+    -app-emerald-border: #2F8A6A;
+    -app-emerald-tint: #15302B;
+    -app-emerald-text: #8FF0C4;
 
-    -app-danger-soft-bg: #3A1D20;
-    -app-danger-soft-border: #7A3039;
-    -app-danger-soft-text: #FF99A4;
-    
-    -app-skeleton: #3E3E3E;
-    -app-skeleton-border: #3A3A3A;
+    -app-danger-soft-bg: #3D1C2C;
+    -app-danger-soft-border: #8A3A57;
+    -app-danger-soft-text: #FF9FB6;
+
+    -app-skeleton: #2B3858;
+    -app-skeleton-border: #2A3757;
+    -app-weather-top: #1F3358;
+    -app-weather-bottom: #1E2940;
+    -app-weather-sun: #FFC94D;
+    -app-weather-moon: #B7C3FF;
+    -app-weather-partly: #FFB84D;
+    -app-weather-cloud: #A9BAD6;
+    -app-weather-fog: #AEBAD0;
+    -app-weather-rain: #62B6FF;
+    -app-weather-snow: #B2E4FF;
+    -app-weather-storm: #C0A6FF;
 }
 
 .label {
@@ -1656,4 +1676,221 @@
     -fx-text-fill: transparent;
     -fx-background-color: -tile-border;
     -fx-background-radius: 6;
+}
+
+.weather-card {
+    -fx-background-color: -app-line, linear-gradient(to bottom, -app-weather-top, -app-weather-bottom);
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 12, 11;
+    -fx-padding: 16 18 12 18;
+}
+
+.weather-location {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.weather-temp {
+    -fx-font-family: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", sans-serif;
+    -fx-font-size: 46px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.weather-desc {
+    -fx-font-size: 15px;
+    -fx-text-fill: -app-text;
+}
+
+.weather-icon {
+    -fx-font-family: "Segoe UI Symbol", "Segoe UI Emoji", "Segoe UI", sans-serif;
+    -fx-font-size: 54px;
+}
+
+.weather-stats {
+    -fx-background-color: -app-today-tint;
+    -fx-background-radius: 10;
+    -fx-padding: 10 6 10 6;
+}
+
+.weather-stat {
+    -fx-spacing: 2;
+}
+
+.weather-stat-value {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.weather-stat-caption {
+    -fx-font-size: 11px;
+    -fx-text-fill: -app-text-muted;
+}
+
+.weather-divider {
+    -fx-background-color: -app-line;
+    -fx-min-height: 1;
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+}
+
+.weather-day {
+    -fx-padding: 6 6 6 6;
+    -fx-background-radius: 6;
+}
+
+.weather-day:hover {
+    -fx-background-color: -app-control-hover;
+}
+
+.weather-day-name {
+    -fx-font-size: 13px;
+    -fx-text-fill: -app-text;
+}
+
+.weather-day-icon {
+    -fx-font-family: "Segoe UI Symbol", "Segoe UI Emoji", "Segoe UI", sans-serif;
+    -fx-font-size: 17px;
+}
+
+.weather-day-rain {
+    -fx-font-size: 12px;
+    -fx-text-fill: -app-weather-rain;
+}
+
+.weather-day-min {
+    -fx-font-size: 13px;
+    -fx-text-fill: -app-text-muted;
+}
+
+.weather-day-max {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.weather-forecast-pane {
+	-fx-background-color: transparent;
+	-fx-padding: 0;
+}
+
+.weather-forecast-pane > .title {
+	-fx-background-color: transparent;
+	-fx-background-insets: 0;
+	-fx-padding: 6 0 6 0;
+}
+
+.weather-forecast-pane > .title > .text {
+	-fx-font-weight: bold;
+}
+
+.weather-forecast-pane > .content {
+	-fx-background-color: transparent;
+	-fx-border-width: 0;
+	-fx-padding: 0;
+}
+
+.hyperlink.weather-attribution,
+.hyperlink.weather-attribution:focused {
+    -fx-font-size: 11px;
+    -fx-text-fill: -app-text-muted;
+    -fx-padding: 2 0 0 0;
+    -fx-border-color: transparent;
+}
+
+.hyperlink.weather-attribution:hover {
+    -fx-text-fill: -app-link;
+    -fx-underline: true;
+}
+
+.label.wx-clear { -fx-text-fill: -app-weather-sun; }
+.label.wx-night { -fx-text-fill: -app-weather-moon; }
+.label.wx-partly { -fx-text-fill: -app-weather-partly; }
+.label.wx-cloudy { -fx-text-fill: -app-weather-cloud; }
+.label.wx-fog { -fx-text-fill: -app-weather-fog; }
+.label.wx-rain { -fx-text-fill: -app-weather-rain; }
+.label.wx-snow { -fx-text-fill: -app-weather-snow; }
+.label.wx-storm { -fx-text-fill: -app-weather-storm; }
+
+.skeleton-circle {
+    -fx-background-radius: 28;
+}
+
+.weather-warning {
+    -fx-background-color: -app-amber-border, -app-amber-tint;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8, 7;
+    -fx-padding: 8 10 8 10;
+    -fx-font-size: 12px;
+    -fx-text-fill: -app-amber-text;
+}
+
+.settings-card {
+    -fx-background-color: -app-line, -app-surface;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 8, 7;
+    -fx-padding: 4 16 4 16;
+}
+
+.settings-divider {
+    -fx-background-color: -app-line;
+    -fx-min-height: 1;
+    -fx-pref-height: 1;
+    -fx-max-height: 1;
+}
+
+.settings-actions {
+    -fx-padding: 14 0 0 0;
+}
+
+.setting-row {
+    -fx-padding: 12 0 12 0;
+}
+
+.setting-name {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.setting-badge {
+    -fx-background-color: -app-indigo-border, -app-indigo-tint;
+    -fx-background-insets: 0, 1;
+    -fx-background-radius: 10, 9;
+    -fx-padding: 1 8 1 8;
+    -fx-font-size: 11px;
+    -fx-text-fill: -app-indigo-text;
+}
+
+.button.setting-reset,
+.button.setting-reset:focused {
+    -fx-padding: 2 10 2 10;
+    -fx-font-size: 12px;
+}
+
+.button.setting-reset:disabled {
+    -fx-background-color: transparent;
+    -fx-border-color: -app-line;
+    -fx-text-fill: -app-text-disabled;
+}
+
+.toast-container.app-toast,
+.toast-container.transfer-toast {
+    -fx-background-color: -app-line-strong, -app-surface !important;
+    -fx-background-insets: 0, 1 !important;
+    -fx-background-radius: 10, 9 !important;
+    -fx-opacity: 1;
+    -fx-effect: dropshadow(gaussian, -app-shadow, 18, 0, 0, 4);
+}
+
+.toast-container.app-toast .toast-title,
+.toast-container.transfer-toast .toast-title {
+    -fx-text-fill: -app-text;
+}
+
+.toast-container.app-toast .toast-message,
+.toast-container.transfer-toast .toast-message {
+    -fx-text-fill: -app-text-muted;
 }

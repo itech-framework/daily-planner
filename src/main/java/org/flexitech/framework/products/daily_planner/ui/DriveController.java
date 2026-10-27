@@ -32,11 +32,14 @@ import org.flexitech.framework.products.daily_planner.app.AppEvents;
 import org.flexitech.framework.products.daily_planner.model.DriveDownload;
 import org.flexitech.framework.products.daily_planner.model.DriveItem;
 import org.flexitech.framework.products.daily_planner.model.DrivePage;
+import org.flexitech.framework.products.daily_planner.model.Setting;
 import org.flexitech.framework.products.daily_planner.service.DriveService;
+import org.flexitech.framework.products.daily_planner.service.SettingsService;
 import org.flexitech.framework.products.daily_planner.ui.component.DriveCard;
 import org.flexitech.framework.products.daily_planner.util.Downloads;
 import org.flexitech.framework.products.daily_planner.util.Notifier;
 import org.flexitech.framework.products.daily_planner.util.Prompt;
+import org.flexitech.framework.products.daily_planner.util.TransferOptions;
 import org.flexitech.framework.products.daily_planner.util.Uploads;
 import org.flexitech.framework.products.daily_planner.util.ZipDownloads;
 
@@ -85,6 +88,9 @@ public class DriveController implements Routable {
 
 	@Use
 	private DriveService driveService;
+
+	@Use
+	private SettingsService settings;
 
 	@FXML
 	private HBox breadcrumbBar;
@@ -314,6 +320,10 @@ public class DriveController implements Routable {
 		return false;
 	}
 
+	private TransferOptions transferOptions() {
+		return new TransferOptions(settings.getInt(Setting.DRIVE_CONNECTIONS));
+	}
+
 	@FXML
 	private void onUpload() {
 		FileChooser chooser = new FileChooser();
@@ -337,11 +347,12 @@ public class DriveController implements Routable {
 			return;
 		}
 		String parent = ROOT.equals(folderId) ? null : folderId;
+		TransferOptions options = transferOptions();
 
 		Set<Path> unique = new HashSet<Path>();
 		for (File file : files) {
 			if (unique.add(file.toPath().toAbsolutePath().normalize())) {
-				Uploads.start(driveService, file.toPath(), parent, item -> addUploadedCard(item, parent));
+				Uploads.start(driveService, file.toPath(), parent, item -> addUploadedCard(item, parent), options);
 			}
 		}
 	}
@@ -508,7 +519,7 @@ public class DriveController implements Routable {
 		}
 
 		rememberDirectory(file.toPath().getParent());
-		Downloads.start(driveService, item, file.toPath());
+		Downloads.start(driveService, item, file.toPath(), transferOptions());
 	}
 
 	private DriveCard.Handlers handlers() {
@@ -1040,6 +1051,10 @@ public class DriveController implements Routable {
 	}
 
 	private File initialDownloadDirectory() {
+		File configured = configuredDownloadDirectory();
+		if (configured != null) {
+			return configured;
+		}
 		if (lastDownloadDirectory != null && !lastDownloadDirectory.isBlank()) {
 			File dir = new File(lastDownloadDirectory);
 			if (dir.isDirectory()) {
@@ -1047,6 +1062,15 @@ public class DriveController implements Routable {
 			}
 		}
 		return systemDownloadsFolder();
+	}
+
+	private File configuredDownloadDirectory() {
+		String value = settings.getString(Setting.DOWNLOAD_FOLDER);
+		if (value == null || value.isBlank()) {
+			return null;
+		}
+		File dir = new File(value.trim());
+		return dir.isDirectory() ? canonical(dir) : null;
 	}
 
 	private void rememberDirectory(Path dir) {

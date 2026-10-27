@@ -15,8 +15,8 @@
 		<Insets top="24" right="24" bottom="24" left="24" />
 	</padding>
 
-	<Label text="Google Login" styleClass="login-title" />
-	<Label text="Loopback sign-in through the iTech api-client module" opacity="0.7" />
+	<Label text="Sign in with Google" styleClass="login-title" />
+	<Label text="Connect your Google account to see your tasks, calendar and files in one place." opacity="0.7" wrapText="true" />
 	<Separator />
 
 	<HBox spacing="10" alignment="CENTER_LEFT">
@@ -25,7 +25,7 @@
 	</HBox>
 
 	<VBox fx:id="browserPane" spacing="6" visible="false" managed="false">
-		<Label text="Your browser should open the Google sign-in page. If it did not:" opacity="0.7" wrapText="true" />
+		<Label text="Your web browser should open the Google sign-in page. If it doesn't, use one of these options:" opacity="0.7" wrapText="true" />
 		<HBox spacing="10" alignment="CENTER_LEFT">
 			<Hyperlink fx:id="authLink" text="Open the sign-in page" onAction="#onOpenLink" />
 			<Button text="Copy link" styleClass="ghost-button" onAction="#onCopyLink" />
@@ -33,7 +33,7 @@
 	</VBox>
 
 	<VBox fx:id="userPane" spacing="6" visible="false" managed="false">
-		<Label text="Signed in user" style="-fx-font-weight: bold;" />
+		<Label text="You are signed in as" style="-fx-font-weight: bold;" />
 		<HBox spacing="8">
 			<Label text="Name:" minWidth="110" opacity="0.7" />
 			<Label fx:id="nameLabel" />
@@ -43,11 +43,11 @@
 			<Label fx:id="emailLabel" />
 		</HBox>
 		<HBox spacing="8">
-			<Label text="Subject:" minWidth="110" opacity="0.7" />
+			<Label text="Account ID:" minWidth="110" opacity="0.7" />
 			<Label fx:id="subLabel" />
 		</HBox>
 		<HBox spacing="8">
-			<Label text="Email verified:" minWidth="110" opacity="0.7" />
+			<Label text="Email confirmed:" minWidth="110" opacity="0.7" />
 			<Label fx:id="verifiedLabel" />
 		</HBox>
 	</VBox>

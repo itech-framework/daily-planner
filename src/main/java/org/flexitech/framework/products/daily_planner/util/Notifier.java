@@ -6,6 +6,8 @@ import javafx.application.Platform;
 
 public final class Notifier {
 
+	private static final String STYLE = "app-toast";
+
 	private Notifier() {
 	}
 
@@ -26,7 +28,8 @@ public final class Notifier {
 	}
 
 	private static void show(ToastType type, String title, String message) {
-		Runnable action = () -> Toast.builder().type(type).title(title).message(message == null ? "" : message).show();
+		Runnable action = () -> Toast.builder().type(type).title(title).message(message == null ? "" : message)
+				.customStyleClass(STYLE).show();
 		if (Platform.isFxApplicationThread()) {
 			action.run();
 		} else {

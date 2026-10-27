@@ -34,7 +34,6 @@ public final class Downloads {
 	private static final double SMOOTHING = 0.3;
 	private static final long PARALLEL_THRESHOLD = 8L * 1024 * 1024;
 	private static final long CHUNK_SIZE = 8L * 1024 * 1024;
-	private static final int CONNECTIONS = 6;
 	private static final int MAX_ATTEMPTS = 3;
 	private static final String NATIVE_PREFIX = "application/vnd.google-apps";
 	private static final ExecutorService POOL = Executors.newCachedThreadPool(task -> {
@@ -46,7 +45,7 @@ public final class Downloads {
 	private Downloads() {
 	}
 
-	public static void start(DriveService service, DriveItem item, Path target) {
+	public static void start(DriveService service, DriveItem item, Path target, TransferOptions options) {
 		String key = ActiveTransfers.key("download", target, null);
 		if (!ActiveTransfers.acquire(key)) {
 			Notifier.info("Download", target.getFileName() + " is already downloading");
@@ -57,7 +56,7 @@ public final class Downloads {
 				Transfer entry = DownloadPanel.add(target.getFileName().toString(), Transfer.Direction.DOWNLOAD);
 				POOL.execute(() -> {
 					try {
-						run(service, item, target, entry);
+						run(service, item, target, entry, options.connections());
 					} finally {
 						ActiveTransfers.release(key);
 					}
@@ -69,13 +68,13 @@ public final class Downloads {
 		});
 	}
 
-	private static void run(DriveService service, DriveItem item, Path target, Transfer entry) {
+	private static void run(DriveService service, DriveItem item, Path target, Transfer entry, int connections) {
 		String name = target.getFileName().toString();
 		Path partial = target.resolveSibling(name + ".part");
 		try {
 			boolean completed;
 			if (isParallel(item)) {
-				completed = copyParallel(service, item, partial, entry);
+				completed = copyParallel(service, item, partial, entry, connections);
 			} else {
 				try (DriveDownload download = service.openDownload(item)) {
 					completed = copy(download, partial, entry);
@@ -134,11 +133,11 @@ public final class Downloads {
 		return true;
 	}
 
-	private static boolean copyParallel(DriveService service, DriveItem item, Path partial, Transfer entry)
-			throws Exception {
+	private static boolean copyParallel(DriveService service, DriveItem item, Path partial, Transfer entry,
+			int connections) throws Exception {
 		long total = item.size();
 		int chunks = (int) ((total + CHUNK_SIZE - 1) / CHUNK_SIZE);
-		int workers = Math.min(CONNECTIONS, chunks);
+		int workers = Math.min(connections, chunks);
 		AtomicInteger next = new AtomicInteger();
 		AtomicLong done = new AtomicLong();
 		AtomicBoolean stop = new AtomicBoolean();

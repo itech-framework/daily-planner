@@ -5,12 +5,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import org.flexitech.framework.products.daily_planner.model.AgendaItem;
+import org.flexitech.framework.products.daily_planner.model.Setting;
+import org.flexitech.framework.products.daily_planner.service.SettingsService;
 import org.flexitech.framework.products.daily_planner.service.TaskService;
 import org.flexitech.framework.products.daily_planner.session.UserSession;
 
 import io.github.itech_framework.core.annotations.components.levels.Service;
 import io.github.itech_framework.core.annotations.dependency.Use;
-import io.github.itech_framework.core.annotations.properties.Property;
 import io.github.itech_framework.java_fx.router.Router;
 import io.github.itech_framework.java_fx.utils.notification.AppNotification;
 import io.github.itech_framework.java_fx.utils.notification.NotificationSource;
@@ -19,8 +20,8 @@ import io.github.itech_framework.java_fx.utils.notification.SystemNotificationSe
 @Service
 public class TaskReminderSource implements NotificationSource {
 
-    @Property(key = "planner.notification.task-hour", defaultValue = "9")
-    private int hour;
+    @Use
+    private SettingsService settings;
 
     @Use
     private TaskService taskService;
@@ -41,6 +42,7 @@ public class TaskReminderSource implements NotificationSource {
     @Override
     public List<AppNotification> check(LocalDateTime now) throws Exception {
         LocalDate today = now.toLocalDate();
+        int hour = settings.getInt(Setting.TASK_HOUR);
         if (hour < 0 || session.getUser() == null || now.getHour() < hour || today.equals(lastDay)) {
             return List.of();
         }

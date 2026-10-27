@@ -18,17 +18,22 @@ public final class Uploads {
 
 	private static final Logger log = LogManager.getLogger(Uploads.class);
 	private static final long UI_INTERVAL_NANOS = 200_000_000L;
+	private static final long WAIT_MILLIS = 200;
 	private static final double SMOOTHING = 0.3;
+	private static final Object GATE = new Object();
 	private static final ExecutorService POOL = Executors.newCachedThreadPool(task -> {
 		Thread thread = new Thread(task, "drive-upload");
 		thread.setDaemon(true);
 		return thread;
 	});
 
+	private static int running;
+
 	private Uploads() {
 	}
 
-	public static void start(DriveService service, Path source, String parentId, Consumer<DriveItem> onSuccess) {
+	public static void start(DriveService service, Path source, String parentId, Consumer<DriveItem> onSuccess,
+			TransferOptions options) {
 		String key = ActiveTransfers.key("upload", source, parentId);
 		if (!ActiveTransfers.acquire(key)) {
 			Notifier.info("Upload", source.getFileName() + " is already uploading");
@@ -39,7 +44,7 @@ public final class Uploads {
 				Transfer entry = DownloadPanel.add(source.getFileName().toString(), Transfer.Direction.UPLOAD);
 				POOL.execute(() -> {
 					try {
-						run(service, source, parentId, entry, onSuccess);
+						run(service, source, parentId, entry, onSuccess, options.connections());
 					} finally {
 						ActiveTransfers.release(key);
 					}
@@ -52,8 +57,51 @@ public final class Uploads {
 	}
 
 	private static void run(DriveService service, Path source, String parentId, Transfer entry,
-			Consumer<DriveItem> onSuccess) {
+			Consumer<DriveItem> onSuccess, int limit) {
 		String name = source.getFileName().toString();
+		boolean admitted;
+		try {
+			admitted = admit(limit, entry);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+			Platform.runLater(entry::close);
+			return;
+		}
+		if (!admitted) {
+			Platform.runLater(entry::close);
+			Notifier.info("Upload cancelled", name);
+			return;
+		}
+		try {
+			upload(service, source, parentId, entry, onSuccess, name);
+		} finally {
+			leave();
+		}
+	}
+
+	private static boolean admit(int limit, Transfer entry) throws InterruptedException {
+		int allowed = Math.max(1, limit);
+		synchronized (GATE) {
+			while (running >= allowed) {
+				if (entry.isCancelled()) {
+					return false;
+				}
+				GATE.wait(WAIT_MILLIS);
+			}
+			running++;
+			return true;
+		}
+	}
+
+	private static void leave() {
+		synchronized (GATE) {
+			running--;
+			GATE.notifyAll();
+		}
+	}
+
+	private static void upload(DriveService service, Path source, String parentId, Transfer entry,
+			Consumer<DriveItem> onSuccess, String name) {
 		long[] lastTick = { System.nanoTime() };
 		long[] lastDone = { 0 };
 		double[] speed = { 0 };

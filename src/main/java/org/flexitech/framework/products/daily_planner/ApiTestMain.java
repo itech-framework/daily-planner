@@ -7,6 +7,7 @@ import org.flexitech.framework.products.daily_planner.ui.CalendarController;
 import org.flexitech.framework.products.daily_planner.ui.DriveController;
 import org.flexitech.framework.products.daily_planner.ui.LoginController;
 import org.flexitech.framework.products.daily_planner.ui.PlannerController;
+import org.flexitech.framework.products.daily_planner.ui.SettingsController;
 import org.flexitech.framework.products.daily_planner.ui.TasksController;
 import org.flexitech.framework.products.daily_planner.util.Notifier;
 
@@ -93,6 +94,7 @@ public class ApiTestMain extends ITechJavaFxApplication {
 		router.registerRoute("tasks", "/views/tasks-view.fxml", TasksController.class, "rise", "main");
 		router.registerRoute("calendar", "/views/calendar-view.fxml", CalendarController.class, "rise", "main");
 		router.registerRoute("drive", "/views/drive.fxml", DriveController.class, "rise", "main");
+		router.registerRoute("settings", "/views/settings-view.fxml", SettingsController.class, "rise", "main");
 	}
 
 	@Override

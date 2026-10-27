@@ -73,15 +73,18 @@ public class MainLayoutController extends LayoutController implements Routable {
 	private Button calendarButton;
 
 	@FXML
+	private Button driveButton;
+
+	@FXML
+	private Button settingsButton;
+
+	@FXML
 	private Button themeButton;
 
 	@FXML
 	private Label avatarLabel;
 
 	private String statusListenerId;
-	
-	@FXML
-	private Button driveButton;
 
 	@Override
 	public void setContent(Parent content) {
@@ -140,7 +143,12 @@ public class MainLayoutController extends LayoutController implements Routable {
 	private void onDrive() {
 		go("drive");
 	}
-	
+
+	@FXML
+	private void onSettings() {
+		go("settings");
+	}
+
 	@FXML
 	private void onToggleTheme() {
 		DataStorageUtil.save(RouterConfig.getDarkModeKey(), !isDark());
@@ -183,7 +191,7 @@ public class MainLayoutController extends LayoutController implements Routable {
 		Route current = router.getCurrentRoute();
 		String name = current == null ? "" : current.name();
 		Map<String, Button> buttons = Map.of("planner", plannerButton, "tasks", tasksButton, "calendar", calendarButton,
-				"drive", driveButton);
+				"drive", driveButton, "settings", settingsButton);
 		buttons.forEach((route, button) -> {
 			button.getStyleClass().remove("nav-active");
 			if (route.equals(name)) {

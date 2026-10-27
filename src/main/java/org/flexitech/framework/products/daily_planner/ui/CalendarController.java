@@ -7,7 +7,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
-import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -25,7 +24,9 @@ import org.flexitech.framework.products.daily_planner.app.AppEvents;
 import org.flexitech.framework.products.daily_planner.model.AgendaItem;
 import org.flexitech.framework.products.daily_planner.model.EventDraft;
 import org.flexitech.framework.products.daily_planner.model.Holiday;
+import org.flexitech.framework.products.daily_planner.model.Setting;
 import org.flexitech.framework.products.daily_planner.service.CalendarService;
+import org.flexitech.framework.products.daily_planner.service.SettingsService;
 import org.flexitech.framework.products.daily_planner.service.TaskService;
 import org.flexitech.framework.products.daily_planner.service.notification.CalendarReminderSource;
 import org.flexitech.framework.products.daily_planner.ui.calendar.CalendarMode;
@@ -33,6 +34,7 @@ import org.flexitech.framework.products.daily_planner.ui.calendar.EventEditor;
 import org.flexitech.framework.products.daily_planner.ui.calendar.MonthGrid;
 import org.flexitech.framework.products.daily_planner.ui.calendar.TimeGrid;
 import org.flexitech.framework.products.daily_planner.util.Notifier;
+import org.flexitech.framework.products.daily_planner.util.OffDays;
 
 import io.github.itech_framework.core.annotations.dependency.Use;
 import io.github.itech_framework.core.annotations.methods.OnInit;
@@ -81,13 +83,8 @@ public class CalendarController implements Routable {
 	@Property(key = "planner.calendar.focus-hour", defaultValue = "7")
 	private int focusHour;
 
-	@Property(key = "planner.calendar.holiday-calendar", defaultValue = "")
-	private String holidayCalendarId;
-
-	@Property(key = "planner.calendar.off-days", defaultValue = "SUNDAY")
-	private String offDaysValue;
-
-	private Set<DayOfWeek> offDays = EnumSet.of(DayOfWeek.SUNDAY);
+	@Use
+	private SettingsService settings;
 
 	@Use
 	private CalendarService calendarService;
@@ -143,7 +140,6 @@ public class CalendarController implements Routable {
 	@OnInit
 	public void initialized() {
 		firstDay = parseEnum(DayOfWeek.class, firstDayName, DayOfWeek.MONDAY);
-		offDays = parseDays(offDaysValue);
 		mode = parseEnum(CalendarMode.class, storedMode(),
 				parseEnum(CalendarMode.class, defaultViewName, CalendarMode.WEEK));
 		selectToggle();
@@ -415,11 +411,12 @@ public class CalendarController implements Routable {
 	}
 
 	private List<Holiday> loadHolidays(LocalDate from, LocalDate to) {
-		if (holidayCalendarId == null || holidayCalendarId.isBlank()) {
+		String calendars = settings.getString(Setting.HOLIDAY_CALENDAR);
+		if (calendars == null || calendars.isBlank()) {
 			return List.of();
 		}
 		Map<String, Holiday> unique = new LinkedHashMap<String, Holiday>();
-		for (String id : holidayCalendarId.split(",")) {
+		for (String id : calendars.split(",")) {
 			String calendarId = id.trim();
 			if (calendarId.isEmpty()) {
 				continue;
@@ -440,6 +437,7 @@ public class CalendarController implements Routable {
 		if (data.tasks() != null) {
 			tasksCache = data.tasks();
 		}
+		var offDays = OffDays.parse(settings.getString(Setting.OFF_DAYS));
 		List<AgendaItem> tasks = tasksCache == null ? new ArrayList<AgendaItem>() : tasksCache;
 		Map<LocalDate, List<Holiday>> holidays = new HashMap<LocalDate, List<Holiday>>();
 		for (Holiday holiday : data.holidays()) {
@@ -607,23 +605,5 @@ public class CalendarController implements Routable {
 		} catch (Exception e) {
 			return fallback;
 		}
-	}
-
-	private Set<DayOfWeek> parseDays(String value) {
-		Set<DayOfWeek> days = EnumSet.noneOf(DayOfWeek.class);
-		if (value == null) {
-			return days;
-		}
-		for (String part : value.split(",")) {
-			if (part.isBlank()) {
-				continue;
-			}
-			try {
-				days.add(DayOfWeek.valueOf(part.trim().toUpperCase(Locale.ROOT)));
-			} catch (IllegalArgumentException e) {
-				log.warn("Unknown off day '{}' ignored", part.trim());
-			}
-		}
-		return days;
 	}
 }

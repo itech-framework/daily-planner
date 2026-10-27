@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" styleClass="weather-day"
+	alignment="CENTER_LEFT" spacing="10">
+	<Label fx:id="nameLabel" styleClass="weather-day-name" minWidth="78" prefWidth="78" />
+	<Label fx:id="iconLabel" styleClass="weather-day-icon" minWidth="24" prefWidth="24" alignment="CENTER" />
+	<Label fx:id="rainLabel" styleClass="weather-day-rain" />
+	<Region HBox.hgrow="ALWAYS" />
+	<Label fx:id="minLabel" styleClass="weather-day-min" />
+	<Label fx:id="maxLabel" styleClass="weather-day-max" minWidth="36" alignment="CENTER_RIGHT" />
+</HBox>

@@ -27,34 +27,34 @@
 			<Label fx:id="bannerNext" styleClass="muted" wrapText="true" />
 		</VBox>
 
-		<HBox spacing="8" alignment="CENTER_LEFT">
-			<Button text="New event" onAction="#onNewEvent" styleClass="accent-button" />
-			<Button text="Upload file" onAction="#onUpload" />
-		</HBox>
-
-		<HBox spacing="14">
-			<VBox styleClass="tile, tile-indigo, tile-link" onMouseClicked="#onOpenCalendar">
-				<Label fx:id="eventsCount" styleClass="tile-count" text="0" />
-				<Label text="Events today" styleClass="muted" />
-			</VBox>
-			<VBox styleClass="tile, tile-rose, tile-link" onMouseClicked="#onOpenCalendar">
-				<Label fx:id="overdueCount" styleClass="tile-count" text="0" />
-				<Label text="Overdue" styleClass="muted" />
-			</VBox>
-			<VBox styleClass="tile, tile-amber, tile-link" onMouseClicked="#onOpenCalendar">
-				<Label fx:id="todayCount" styleClass="tile-count" text="0" />
-				<Label text="Due today" styleClass="muted" />
-			</VBox>
-			<VBox styleClass="tile, tile-emerald, tile-link" onMouseClicked="#onOpenCalendar">
-				<Label fx:id="upcomingCount" styleClass="tile-count" text="0" />
-				<Label text="Upcoming" styleClass="muted" />
-			</VBox>
-		</HBox>
-
-		<VBox fx:id="warningBox" styleClass="warning-box" spacing="4" visible="false" managed="false" />
-
 		<HBox spacing="24" alignment="TOP_LEFT">
 			<VBox spacing="12" HBox.hgrow="ALWAYS">
+				<HBox spacing="8" alignment="CENTER_LEFT">
+					<Button text="New event" onAction="#onNewEvent" styleClass="accent-button" />
+					<Button text="Upload file" onAction="#onUpload" />
+				</HBox>
+
+				<HBox spacing="14">
+					<VBox styleClass="tile, tile-indigo, tile-link" onMouseClicked="#onOpenCalendar">
+						<Label fx:id="eventsCount" styleClass="tile-count" text="0" />
+						<Label text="Events today" styleClass="muted" />
+					</VBox>
+					<VBox styleClass="tile, tile-rose, tile-link" onMouseClicked="#onOpenCalendar">
+						<Label fx:id="overdueCount" styleClass="tile-count" text="0" />
+						<Label text="Overdue" styleClass="muted" />
+					</VBox>
+					<VBox styleClass="tile, tile-amber, tile-link" onMouseClicked="#onOpenCalendar">
+						<Label fx:id="todayCount" styleClass="tile-count" text="0" />
+						<Label text="Due today" styleClass="muted" />
+					</VBox>
+					<VBox styleClass="tile, tile-emerald, tile-link" onMouseClicked="#onOpenCalendar">
+						<Label fx:id="upcomingCount" styleClass="tile-count" text="0" />
+						<Label text="Upcoming" styleClass="muted" />
+					</VBox>
+				</HBox>
+
+				<VBox fx:id="warningBox" styleClass="warning-box" spacing="4" visible="false" managed="false" />
+
 				<VBox fx:id="nextUpCard" styleClass="next-up" spacing="4" visible="false" managed="false">
 					<Label text="NEXT UP" styleClass="muted" />
 					<Label fx:id="nextUpTitle" styleClass="agenda-title" wrapText="true" />
@@ -80,6 +80,8 @@
 			</VBox>
 
 			<VBox spacing="12" minWidth="300" prefWidth="340" maxWidth="340">
+				<VBox fx:id="weatherBox" spacing="8" />
+
 				<Label text="Drive" styleClass="section-title" />
 				<VBox styleClass="side-card" spacing="10">
 					<VBox spacing="4">

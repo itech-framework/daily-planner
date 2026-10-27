@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" styleClass="weather-card"
+	spacing="14">
+	<Region styleClass="skeleton-block" minWidth="120" prefWidth="120" maxWidth="120" minHeight="12"
+		prefHeight="12" maxHeight="12" />
+	<HBox alignment="CENTER_LEFT" spacing="8">
+		<VBox spacing="8">
+			<Region styleClass="skeleton-block" minWidth="96" prefWidth="96" maxWidth="96" minHeight="40"
+				prefHeight="40" maxHeight="40" />
+			<Region styleClass="skeleton-block" minWidth="140" prefWidth="140" maxWidth="140" minHeight="12"
+				prefHeight="12" maxHeight="12" />
+		</VBox>
+		<Region HBox.hgrow="ALWAYS" />
+		<Region styleClass="skeleton-block, skeleton-circle" minWidth="56" prefWidth="56" maxWidth="56"
+			minHeight="56" prefHeight="56" maxHeight="56" />
+	</HBox>
+	<Region styleClass="skeleton-block" maxWidth="Infinity" minHeight="48" prefHeight="48" maxHeight="48" />
+	<VBox spacing="10">
+		<Region styleClass="skeleton-block" maxWidth="Infinity" minHeight="16" prefHeight="16" maxHeight="16" />
+		<Region styleClass="skeleton-block" maxWidth="Infinity" minHeight="16" prefHeight="16" maxHeight="16" />
+		<Region styleClass="skeleton-block" maxWidth="Infinity" minHeight="16" prefHeight="16" maxHeight="16" />
+	</VBox>
+</VBox>

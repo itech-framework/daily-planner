@@ -10,7 +10,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
-import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,25 +21,31 @@ import org.flexitech.framework.products.daily_planner.model.DriveStorage;
 import org.flexitech.framework.products.daily_planner.model.EventDraft;
 import org.flexitech.framework.products.daily_planner.model.Holiday;
 import org.flexitech.framework.products.daily_planner.model.PlannerSnapshot;
+import org.flexitech.framework.products.daily_planner.model.Setting;
+import org.flexitech.framework.products.daily_planner.model.WeatherSnapshot;
 import org.flexitech.framework.products.daily_planner.service.CalendarService;
 import org.flexitech.framework.products.daily_planner.service.DriveService;
 import org.flexitech.framework.products.daily_planner.service.PlannerService;
+import org.flexitech.framework.products.daily_planner.service.SettingsService;
 import org.flexitech.framework.products.daily_planner.service.TaskService;
+import org.flexitech.framework.products.daily_planner.service.WeatherService;
 import org.flexitech.framework.products.daily_planner.session.UserSession;
 import org.flexitech.framework.products.daily_planner.ui.calendar.EventEditor;
 import org.flexitech.framework.products.daily_planner.ui.component.AgendaCard;
 import org.flexitech.framework.products.daily_planner.ui.component.AgendaSkeleton;
 import org.flexitech.framework.products.daily_planner.ui.component.DriveRow;
 import org.flexitech.framework.products.daily_planner.ui.component.DriveSkeleton;
+import org.flexitech.framework.products.daily_planner.ui.component.WeatherCard;
+import org.flexitech.framework.products.daily_planner.ui.component.WeatherSkeleton;
 import org.flexitech.framework.products.daily_planner.util.Notifier;
 import org.flexitech.framework.products.daily_planner.util.OffDays;
 import org.flexitech.framework.products.daily_planner.util.Pulse;
 import org.flexitech.framework.products.daily_planner.util.Sizes;
+import org.flexitech.framework.products.daily_planner.util.TransferOptions;
 import org.flexitech.framework.products.daily_planner.util.Uploads;
 
 import io.github.itech_framework.core.annotations.dependency.Use;
 import io.github.itech_framework.core.annotations.methods.OnInit;
-import io.github.itech_framework.core.annotations.properties.Property;
 import io.github.itech_framework.java_fx.annotations.FxController;
 import io.github.itech_framework.java_fx.events.EventBus;
 import io.github.itech_framework.java_fx.router.Router;
@@ -72,6 +77,7 @@ public class PlannerController implements Routable {
 	private static final String STORAGE_FULL = "storage-full";
 	private static final String CALENDAR_ROUTE = "calendar";
 	private static final String DRIVE_ROUTE = "drive";
+	private static final String WEATHER_SITE = "https://open-meteo.com/";
 	private static final String COUNT_PLACEHOLDER = "00";
 	private static final String STORAGE_PLACEHOLDER = "000 MB of 000 GB used";
 	private static final int RECENT_LIMIT = 6;
@@ -83,11 +89,8 @@ public class PlannerController implements Routable {
 	private static final int DRIVE_SKELETON_ROWS = 4;
 	private static final double STORAGE_WARN = 0.9;
 
-	@Property(key = "planner.calendar.holiday-calendar", defaultValue = "")
-	private String holidayCalendarId;
-
-	@Property(key = "planner.calendar.off-days", defaultValue = "SUNDAY")
-	private String offDaysValue;
+	@Use
+	private SettingsService settings;
 
 	@Use
 	private PlannerService plannerService;
@@ -100,6 +103,9 @@ public class PlannerController implements Routable {
 
 	@Use
 	private DriveService driveService;
+
+	@Use
+	private WeatherService weatherService;
 
 	@Use
 	private UserSession session;
@@ -171,6 +177,9 @@ public class PlannerController implements Routable {
 	private VBox upcomingBox;
 
 	@FXML
+	private VBox weatherBox;
+
+	@FXML
 	private Label storageLabel;
 
 	@FXML
@@ -187,8 +196,8 @@ public class PlannerController implements Routable {
 	private volatile boolean disposed;
 	private boolean plannerLoaded;
 	private boolean driveLoaded;
+	private boolean weatherLoaded;
 	private LoadingDialog loading;
-	private Set<java.time.DayOfWeek> offDays = OffDays.parse("SUNDAY");
 	private List<AgendaItem> todayEvents = List.of();
 	private AgendaItem nextEvent;
 
@@ -198,7 +207,6 @@ public class PlannerController implements Routable {
 				: session.getUser().getName();
 		greetingLabel.setText("Hello, " + name);
 		dateLabel.setText(DATE.format(LocalDate.now()));
-		offDays = OffDays.parse(offDaysValue);
 		ticker.setCycleCount(Animation.INDEFINITE);
 	}
 
@@ -257,12 +265,13 @@ public class PlannerController implements Routable {
 		if (files == null || files.isEmpty()) {
 			return;
 		}
+		TransferOptions options = new TransferOptions(settings.getInt(Setting.DRIVE_CONNECTIONS));
 		for (File file : files) {
 			Uploads.start(driveService, file.toPath(), null, item -> {
 				if (!disposed) {
 					loadDrive();
 				}
-			});
+			}, options);
 		}
 	}
 
@@ -278,6 +287,7 @@ public class PlannerController implements Routable {
 
 	private void loadAll(boolean withDialog) {
 		load(withDialog);
+		loadWeather(withDialog);
 		loadDrive();
 		loadBanner();
 	}
@@ -385,13 +395,42 @@ public class PlannerController implements Routable {
 		return "in " + minutes / 60 + " h " + minutes % 60 + " min";
 	}
 
+	private void loadWeather(boolean refresh) {
+		if (!weatherLoaded) {
+			WeatherSkeleton.fill(weatherBox);
+		}
+		background.run(() -> weatherService.getWeather(refresh), this::renderWeather, error -> {
+			log.warn("Weather could not be loaded: {}", error.getMessage());
+			if (!weatherLoaded && !disposed) {
+				Label message = note(error.getMessage() == null ? "Weather is unavailable." : error.getMessage());
+				message.setWrapText(true);
+				weatherBox.getChildren().setAll(message);
+			}
+		});
+	}
+
+	private void renderWeather(WeatherSnapshot snapshot) {
+		if (disposed) {
+			return;
+		}
+		weatherLoaded = true;
+		weatherBox.getChildren().setAll(WeatherCard.create(snapshot, this::openWeatherSite));
+	}
+
+	private void openWeatherSite() {
+		if (ApiTestMain.hostServices() != null) {
+			ApiTestMain.hostServices().showDocument(WEATHER_SITE);
+		}
+	}
+
 	private void loadBanner() {
 		LocalDate today = LocalDate.now();
-		if (holidayCalendarId == null || holidayCalendarId.isBlank()) {
+		String calendarId = settings.getString(Setting.HOLIDAY_CALENDAR);
+		if (calendarId == null || calendarId.isBlank()) {
 			renderBanner(List.of(), today);
 			return;
 		}
-		background.run(() -> calendarService.getAllHolidays(holidayCalendarId, today, today.plusDays(HOLIDAY_DAYS)),
+		background.run(() -> calendarService.getAllHolidays(calendarId, today, today.plusDays(HOLIDAY_DAYS)),
 				holidays -> renderBanner(holidays, today), error -> {
 					log.warn("Holidays could not be loaded for the dashboard: {}", error.getMessage());
 					renderBanner(List.of(), today);
@@ -399,6 +438,7 @@ public class PlannerController implements Routable {
 	}
 
 	private void renderBanner(List<Holiday> holidays, LocalDate today) {
+		var offDays = OffDays.parse(settings.getString(Setting.OFF_DAYS));
 		List<Holiday> named = holidays.stream().filter(Holiday::hasName).toList();
 		List<String> publicToday = namesOn(named, today, true);
 		List<String> observancesToday = namesOn(named, today, false);
