@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.model.AgendaItem;
 import org.flexitech.framework.products.daily_planner.service.CalendarService;
 import org.flexitech.framework.products.daily_planner.session.UserSession;
@@ -118,8 +118,8 @@ public class CalendarReminderSource implements NotificationSource {
 		log.info("Calendar notification created: id={}, title='{}', text='{}', meet={}", id, event.title(), when, meet);
 
 		Runnable action = () -> {
-			if (meet && ApiTestMain.hostServices() != null) {
-				ApiTestMain.hostServices().showDocument(link);
+			if (meet && DailyPlannerAppMain.hostServices() != null) {
+				DailyPlannerAppMain.hostServices().showDocument(link);
 			} else {
 				router.off("calendar", event.start().toLocalDate());
 			}

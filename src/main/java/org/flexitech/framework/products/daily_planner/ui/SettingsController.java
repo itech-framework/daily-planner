@@ -7,7 +7,7 @@ import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.model.Setting;
 import org.flexitech.framework.products.daily_planner.service.SettingsService;
 import org.flexitech.framework.products.daily_planner.ui.component.SettingRow;
@@ -188,7 +188,7 @@ public class SettingsController implements Routable {
 		Alert alert = new Alert(Alert.AlertType.CONFIRMATION, RESET_ALL_TEXT, ButtonType.CANCEL, ButtonType.OK);
 		alert.setTitle("Reset all settings");
 		alert.setHeaderText("Reset all settings?");
-		Window owner = ApiTestMain.primaryStage();
+		Window owner = DailyPlannerAppMain.primaryStage();
 		alert.initOwner(owner);
 		Scene scene = owner == null ? null : owner.getScene();
 		if (scene != null) {

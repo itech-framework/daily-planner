@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.framework.products.daily_planner.ui.NotesController" styleClass="page">
+	<HBox styleClass="toolbar" spacing="6" alignment="CENTER_LEFT">
+		<TextField fx:id="searchField" promptText="Search notes" prefWidth="240" />
+		<Region HBox.hgrow="ALWAYS" />
+		<ProgressIndicator fx:id="progress" visible="false" prefWidth="16" prefHeight="16" />
+		<Button fx:id="deleteFolderButton" text="Delete folder" onAction="#onDeleteFolder" />
+		<Button fx:id="renameFolderButton" text="Rename folder" onAction="#onRenameFolder" />
+		<Button text="New folder" onAction="#onNewFolder" />
+		<Button fx:id="refreshButton" text="Refresh" onAction="#onRefresh" />
+		<Button text="New note" onAction="#onNewNote" styleClass="accent-button" />
+	</HBox>
+
+	<FlowPane fx:id="folderBar" styleClass="note-folders" hgap="6" vgap="6" />
+
+	<ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="drive-scroll" VBox.vgrow="ALWAYS">
+		<VBox styleClass="drive-content" spacing="12">
+			<FlowPane fx:id="cardGrid" styleClass="drive-grid" hgap="12" vgap="12" />
+			<Label fx:id="emptyLabel" text="No notes in this folder" styleClass="muted" visible="false" managed="false" />
+		</VBox>
+	</ScrollPane>
+</VBox>

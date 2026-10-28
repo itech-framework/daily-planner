@@ -1,6 +1,6 @@
 package org.flexitech.framework.products.daily_planner.util;
 
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 
 import io.github.itech_framework.java_fx.ui.toast.Toast;
 import io.github.itech_framework.java_fx.ui.toast.ToastPosition;
@@ -23,7 +23,7 @@ public final class DownloadPanel {
 
 	static Toast.ToastBuilder toastBuilder() {
 		return Toast.builder()
-				.owner(ApiTestMain.primaryStage())
+				.owner(DailyPlannerAppMain.primaryStage())
 				.type(ToastType.CUSTOM)
 				.group(GROUP)
 				.position(ToastPosition.BOTTOM_RIGHT)

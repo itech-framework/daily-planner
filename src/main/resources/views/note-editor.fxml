@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.HTMLEditor?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.framework.products.daily_planner.ui.NoteEditorController" styleClass="page">
+	<HBox styleClass="toolbar" spacing="6" alignment="CENTER_LEFT">
+		<Button text="Back" onAction="#onBack" />
+		<Region HBox.hgrow="ALWAYS" />
+		<ProgressIndicator fx:id="progress" visible="false" prefWidth="16" prefHeight="16" />
+		<Button fx:id="saveButton" text="Save" onAction="#onSave" styleClass="accent-button" />
+	</HBox>
+	<HBox styleClass="note-meta" spacing="8" alignment="CENTER_LEFT">
+		<TextField fx:id="titleField" promptText="Title" HBox.hgrow="ALWAYS" />
+		<ComboBox fx:id="folderBox" prefWidth="200" />
+	</HBox>
+	<HTMLEditor fx:id="editor" VBox.vgrow="ALWAYS" />
+</VBox>

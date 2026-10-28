@@ -4,7 +4,7 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 
 import io.github.itech_framework.java_fx.ui.dialog.AlertDialog;
 import io.github.itech_framework.java_fx.ui.dialog.ModalDialog;
@@ -22,7 +22,7 @@ public final class Prompt {
 	}
 
 	public static Optional<String> text(String title, String label, String initial) {
-		Stage owner = ApiTestMain.primaryStage();
+		Stage owner = DailyPlannerAppMain.primaryStage();
 
 		Label titleLabel = new Label(title);
 		titleLabel.getStyleClass().add("alert-title");
@@ -61,7 +61,7 @@ public final class Prompt {
 	public static boolean confirm(String title, String message, String action) {
 		AtomicBoolean confirmed = new AtomicBoolean();
 		AlertDialog.builder().level(AlertDialog.Level.WARNING).title(title).message(message)
-				.addOwner(ApiTestMain.primaryStage()).addButton("Cancel", "dialog-close-button", null)
+				.addOwner(DailyPlannerAppMain.primaryStage()).addButton("Cancel", "dialog-close-button", null)
 				.addButton(action, () -> confirmed.set(true)).build().show();
 		return confirmed.get();
 	}

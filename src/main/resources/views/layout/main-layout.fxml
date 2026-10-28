@@ -14,6 +14,7 @@
 			<Label text="Daily Planner" styleClass="brand" />
 			<Region prefHeight="8" minHeight="8" />
 			<Button fx:id="plannerButton" text="Today" maxWidth="Infinity" styleClass="nav-button" onAction="#onPlanner" />
+			<Button fx:id="notesButton" text="Notes" maxWidth="Infinity" styleClass="nav-button" onAction="#onNotes" />
 			<Button fx:id="calendarButton" text="Calendar" maxWidth="Infinity" styleClass="nav-button" onAction="#onCalendar" />
 			<Button fx:id="tasksButton" text="Tasks" maxWidth="Infinity" styleClass="nav-button" onAction="#onTasks" />
 			<Button fx:id="driveButton" text="Drive" maxWidth="Infinity" styleClass="nav-button" onAction="#onDrive" />

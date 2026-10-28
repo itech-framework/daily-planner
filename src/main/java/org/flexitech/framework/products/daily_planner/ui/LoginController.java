@@ -1,6 +1,6 @@
 package org.flexitech.framework.products.daily_planner.ui;
 
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.api.response.GoogleUserInfo;
 import org.flexitech.framework.products.daily_planner.service.GoogleAuthService;
 import org.flexitech.framework.products.daily_planner.session.UserSession;
@@ -129,11 +129,11 @@ public class LoginController  implements Routable {
 		if (authUrl == null) {
 			return;
 		}
-		if (ApiTestMain.hostServices() == null) {
+		if (DailyPlannerAppMain.hostServices() == null) {
 			toast(ToastType.ERROR, "Cannot open browser", "Use the Copy link button and open it manually.");
 			return;
 		}
-		ApiTestMain.hostServices().showDocument(authUrl);
+		DailyPlannerAppMain.hostServices().showDocument(authUrl);
 	}
 
 	@FXML

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.model.AgendaItem;
 import org.flexitech.framework.products.daily_planner.model.EventDraft;
 
@@ -134,8 +134,8 @@ public final class EventEditor {
 			if (hasMeet) {
 				Hyperlink join = new Hyperlink("Open in Google Meet");
 				join.setOnAction(event -> {
-					if (ApiTestMain.hostServices() != null) {
-						ApiTestMain.hostServices().showDocument(link);
+					if (DailyPlannerAppMain.hostServices() != null) {
+						DailyPlannerAppMain.hostServices().showDocument(link);
 					}
 				});
 				body.getChildren().addAll(caption("Google Meet is already added to this event."), join);

@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.model.DriveItem;
 import org.flexitech.framework.products.daily_planner.model.DrivePage;
 import org.flexitech.framework.products.daily_planner.service.DriveService;
@@ -59,7 +59,7 @@ public final class FolderPicker {
 	}
 
 	private void open(Consumer<Choice> onChoose) {
-		Stage owner = ApiTestMain.primaryStage();
+		Stage owner = DailyPlannerAppMain.primaryStage();
 		AtomicReference<Choice> result = new AtomicReference<Choice>();
 		AtomicReference<ModalDialog> holder = new AtomicReference<ModalDialog>();
 

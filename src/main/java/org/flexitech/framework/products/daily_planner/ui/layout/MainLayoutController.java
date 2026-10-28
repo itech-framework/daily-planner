@@ -2,7 +2,7 @@ package org.flexitech.framework.products.daily_planner.ui.layout;
 
 import java.util.Map;
 
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.api.response.GoogleUserInfo;
 import org.flexitech.framework.products.daily_planner.app.AppEvents;
 import org.flexitech.framework.products.daily_planner.service.GoogleAuthService;
@@ -76,6 +76,9 @@ public class MainLayoutController extends LayoutController implements Routable {
 	private Button driveButton;
 
 	@FXML
+	private Button notesButton;
+	
+	@FXML
 	private Button settingsButton;
 
 	@FXML
@@ -145,6 +148,11 @@ public class MainLayoutController extends LayoutController implements Routable {
 	}
 
 	@FXML
+	private void onNotes() {
+		go("notes");
+	}
+	
+	@FXML
 	private void onSettings() {
 		go("settings");
 	}
@@ -159,7 +167,7 @@ public class MainLayoutController extends LayoutController implements Routable {
 	@FXML
 	private void onSignOut() {
 		AlertDialog.builder().level(AlertDialog.Level.WARNING).title("Sign out")
-				.message("Sign out and revoke the Google access for this app?").addOwner(ApiTestMain.primaryStage())
+				.message("Sign out and revoke the Google access for this app?").addOwner(DailyPlannerAppMain.primaryStage())
 				.addButton("Cancel", null).addButton("Sign out", this::signOut).build().show();
 	}
 
@@ -190,11 +198,15 @@ public class MainLayoutController extends LayoutController implements Routable {
 	private void highlight() {
 		Route current = router.getCurrentRoute();
 		String name = current == null ? "" : current.name();
-		Map<String, Button> buttons = Map.of("planner", plannerButton, "tasks", tasksButton, "calendar", calendarButton,
-				"drive", driveButton, "settings", settingsButton);
+		if (name.startsWith("note")) {
+			name = "notes";
+		}
+		String active = name;
+		Map<String, Button> buttons = Map.of("planner", plannerButton, "tasks", tasksButton, "notes", notesButton,
+				"calendar", calendarButton, "drive", driveButton, "settings", settingsButton);
 		buttons.forEach((route, button) -> {
 			button.getStyleClass().remove("nav-active");
-			if (route.equals(name)) {
+			if (route.equals(active)) {
 				button.getStyleClass().add("nav-active");
 			}
 		});

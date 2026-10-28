@@ -13,7 +13,7 @@ import java.util.Locale;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.app.AppEvents;
 import org.flexitech.framework.products.daily_planner.model.AgendaItem;
 import org.flexitech.framework.products.daily_planner.model.DriveItem;
@@ -246,22 +246,27 @@ public class PlannerController implements Routable {
 
 	@FXML
 	private void onOpenNextUp() {
-		if (nextEvent != null && nextEvent.link() != null && ApiTestMain.hostServices() != null) {
-			ApiTestMain.hostServices().showDocument(nextEvent.link());
+		if (nextEvent != null && nextEvent.link() != null && DailyPlannerAppMain.hostServices() != null) {
+			DailyPlannerAppMain.hostServices().showDocument(nextEvent.link());
 		}
 	}
 
 	@FXML
 	private void onNewEvent() {
 		LocalDateTime start = LocalDate.now().atTime(Math.min(22, LocalTime.now().getHour() + 1), 0);
-		EventEditor.open(ApiTestMain.primaryStage(), null, start, false, draft -> saveEvent(draft));
+		EventEditor.open(DailyPlannerAppMain.primaryStage(), null, start, false, draft -> saveEvent(draft));
+	}
+	
+	@FXML
+	private void onTakeNote() {
+		router.off("notes");
 	}
 
 	@FXML
 	private void onUpload() {
 		FileChooser chooser = new FileChooser();
 		chooser.setTitle("Upload to Drive");
-		List<File> files = chooser.showOpenMultipleDialog(ApiTestMain.primaryStage());
+		List<File> files = chooser.showOpenMultipleDialog(DailyPlannerAppMain.primaryStage());
 		if (files == null || files.isEmpty()) {
 			return;
 		}
@@ -299,7 +304,7 @@ public class PlannerController implements Routable {
 			showPlannerSkeleton();
 		}
 		if (withDialog) {
-			loading = LoadingDialog.showLoading(ApiTestMain.primaryStage(), "Loading your day...");
+			loading = LoadingDialog.showLoading(DailyPlannerAppMain.primaryStage(), "Loading your day...");
 		}
 		background.run(plannerService::loadToday, this::render, this::fail);
 	}
@@ -418,8 +423,8 @@ public class PlannerController implements Routable {
 	}
 
 	private void openWeatherSite() {
-		if (ApiTestMain.hostServices() != null) {
-			ApiTestMain.hostServices().showDocument(WEATHER_SITE);
+		if (DailyPlannerAppMain.hostServices() != null) {
+			DailyPlannerAppMain.hostServices().showDocument(WEATHER_SITE);
 		}
 	}
 
@@ -542,11 +547,11 @@ public class PlannerController implements Routable {
 	}
 
 	private void openFile(DriveItem item) {
-		if (item.link() == null || item.link().isBlank() || ApiTestMain.hostServices() == null) {
+		if (item.link() == null || item.link().isBlank() || DailyPlannerAppMain.hostServices() == null) {
 			Notifier.warning("Cannot open file", item.name());
 			return;
 		}
-		ApiTestMain.hostServices().showDocument(item.link());
+		DailyPlannerAppMain.hostServices().showDocument(item.link());
 	}
 
 	private Label note(String text) {

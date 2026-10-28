@@ -6,6 +6,9 @@ import org.flexitech.framework.products.daily_planner.service.GoogleAuthService;
 import org.flexitech.framework.products.daily_planner.ui.CalendarController;
 import org.flexitech.framework.products.daily_planner.ui.DriveController;
 import org.flexitech.framework.products.daily_planner.ui.LoginController;
+import org.flexitech.framework.products.daily_planner.ui.NoteEditorController;
+import org.flexitech.framework.products.daily_planner.ui.NoteViewController;
+import org.flexitech.framework.products.daily_planner.ui.NotesController;
 import org.flexitech.framework.products.daily_planner.ui.PlannerController;
 import org.flexitech.framework.products.daily_planner.ui.SettingsController;
 import org.flexitech.framework.products.daily_planner.ui.TasksController;
@@ -33,7 +36,7 @@ import javafx.util.Duration;
 @EnableJavaFx
 @EnableApiClient
 @ComponentScan(basePackage = "org.flexitech.framework.products.daily_planner")
-public class ApiTestMain extends ITechJavaFxApplication {
+public class DailyPlannerAppMain extends ITechJavaFxApplication {
 
 	private static HostServices hostServices;
 	private static Stage primaryStage;
@@ -56,7 +59,7 @@ public class ApiTestMain extends ITechJavaFxApplication {
 	protected void onInit() throws Exception {
 		RouterConfig config = router.getConfig();
 		config.addStyleSheets(
-				Objects.requireNonNull(ApiTestMain.class.getResource("/static/css/app.css")).toExternalForm());
+				Objects.requireNonNull(DailyPlannerAppMain.class.getResource("/static/css/app.css")).toExternalForm());
 
 		config.addTransition("fade", root -> {
 			root.setOpacity(0);
@@ -94,6 +97,9 @@ public class ApiTestMain extends ITechJavaFxApplication {
 		router.registerRoute("tasks", "/views/tasks-view.fxml", TasksController.class, "rise", "main");
 		router.registerRoute("calendar", "/views/calendar-view.fxml", CalendarController.class, "rise", "main");
 		router.registerRoute("drive", "/views/drive.fxml", DriveController.class, "rise", "main");
+		router.registerRoute("notes", "/views/notes-view.fxml", NotesController.class, "rise", "main");
+		router.registerRoute("note-view", "/views/note-view.fxml", NoteViewController.class, "rise", "main");
+		router.registerRoute("note-edit", "/views/note-editor.fxml", NoteEditorController.class, "rise", "main");
 		router.registerRoute("settings", "/views/settings-view.fxml", SettingsController.class, "rise", "main");
 	}
 
@@ -104,15 +110,15 @@ public class ApiTestMain extends ITechJavaFxApplication {
 		stage.setTitle(appName);
 		stage.setMinWidth(900);
 		stage.setMinHeight(600);
-		router.initialize(ApiTestMain.class, stage);
+		router.initialize(DailyPlannerAppMain.class, stage);
 		router.to("login");
 		stage.setMaximized(true);
-		stage.getIcons().add(new Image(ApiTestMain.class.getResourceAsStream(Objects.requireNonNull("/static/images/logo.png"))));
+		stage.getIcons().add(new Image(DailyPlannerAppMain.class.getResourceAsStream(Objects.requireNonNull("/static/images/logo.png"))));
 		Toast.warmUp(stage);
 		stage.show();
 	}
 
 	public static void main(String[] args) throws Exception {
-		ITechJavaFxApplication.run(ApiTestMain.class, args);
+		ITechJavaFxApplication.run(DailyPlannerAppMain.class, args);
 	}
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.app.AppEvents;
 import org.flexitech.framework.products.daily_planner.model.AgendaItem;
 import org.flexitech.framework.products.daily_planner.service.TaskService;
@@ -112,7 +112,7 @@ public class TasksController implements Routable {
 						: ValidationResult.invalid("The due date is in the past"), due);
 
 		ModalDialog[] holder = new ModalDialog[1];
-		holder[0] = ModalDialog.builder().addOwner(ApiTestMain.primaryStage()).addContent(form).addCloseButton("Cancel")
+		holder[0] = ModalDialog.builder().addOwner(DailyPlannerAppMain.primaryStage()).addContent(form).addCloseButton("Cancel")
 				.addActionButton("Create", () -> {
 					if (!validator.validate()) {
 						return;

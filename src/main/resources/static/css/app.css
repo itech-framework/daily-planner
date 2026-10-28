@@ -1894,3 +1894,27 @@
 .toast-container.transfer-toast .toast-message {
     -fx-text-fill: -app-text-muted;
 }
+
+
+.note-folders {
+    -fx-padding: 8 14 4 14;
+}
+
+.note-meta {
+    -fx-padding: 8 12 8 12;
+}
+
+.note-heading {
+    -fx-padding: 12 16 8 16;
+}
+
+.note-title {
+    -fx-font-family: "Segoe UI Variable Display", "Segoe UI Semibold", "Segoe UI", sans-serif;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -app-text;
+}
+
+.note-paper {
+    -fx-padding: 0 16 16 16;
+}

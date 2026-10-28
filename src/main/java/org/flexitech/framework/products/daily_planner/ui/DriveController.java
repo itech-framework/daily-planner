@@ -27,7 +27,7 @@ import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.app.AppEvents;
 import org.flexitech.framework.products.daily_planner.model.DriveDownload;
 import org.flexitech.framework.products.daily_planner.model.DriveItem;
@@ -335,7 +335,7 @@ public class DriveController implements Routable {
 			}
 		}
 
-		List<File> files = modal(() -> chooser.showOpenMultipleDialog(ApiTestMain.primaryStage()), null);
+		List<File> files = modal(() -> chooser.showOpenMultipleDialog(DailyPlannerAppMain.primaryStage()), null);
 		if (files == null || files.isEmpty()) {
 			return;
 		}
@@ -513,7 +513,7 @@ public class DriveController implements Routable {
 		chooser.setInitialFileName(driveService.downloadName(item));
 		chooser.setInitialDirectory(initialDownloadDirectory());
 
-		File file = modal(() -> chooser.showSaveDialog(ApiTestMain.primaryStage()), null);
+		File file = modal(() -> chooser.showSaveDialog(DailyPlannerAppMain.primaryStage()), null);
 		if (file == null) {
 			return;
 		}
@@ -686,7 +686,7 @@ public class DriveController implements Routable {
 		}
 		emptyingTrash = true;
 		emptyTrashButton.setDisable(true);
-		LoadingDialog loadingDialog = LoadingDialog.showLoading(ApiTestMain.primaryStage(), "Emptying Trash\u2026");
+		LoadingDialog loadingDialog = LoadingDialog.showLoading(DailyPlannerAppMain.primaryStage(), "Emptying Trash\u2026");
 		background.run(() -> {
 			driveService.emptyTrash();
 			return Boolean.TRUE;
@@ -722,7 +722,7 @@ public class DriveController implements Routable {
 		}
 		creatingFolder = true;
 		String parent = ROOT.equals(folderId) ? null : folderId;
-		LoadingDialog loadingDialog = LoadingDialog.showLoading(ApiTestMain.primaryStage(), "Creating folder\u2026");
+		LoadingDialog loadingDialog = LoadingDialog.showLoading(DailyPlannerAppMain.primaryStage(), "Creating folder\u2026");
 		background.run(() -> driveService.createFolder(name.get(), parent), created -> {
 			creatingFolder = false;
 			loadingDialog.close();
@@ -1031,7 +1031,7 @@ public class DriveController implements Routable {
 		chooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Zip archive", "*.zip"));
 		chooser.setInitialDirectory(initialDownloadDirectory());
 
-		File file = modal(() -> chooser.showSaveDialog(ApiTestMain.primaryStage()), null);
+		File file = modal(() -> chooser.showSaveDialog(DailyPlannerAppMain.primaryStage()), null);
 		if (file == null) {
 			return;
 		}
@@ -1196,11 +1196,11 @@ public class DriveController implements Routable {
 			load(true);
 			return;
 		}
-		if (item.link() == null || item.link().isBlank() || ApiTestMain.hostServices() == null) {
+		if (item.link() == null || item.link().isBlank() || DailyPlannerAppMain.hostServices() == null) {
 			Notifier.warning("Cannot open file", item.name());
 			return;
 		}
-		ApiTestMain.hostServices().showDocument(item.link());
+		DailyPlannerAppMain.hostServices().showDocument(item.link());
 	}
 
 	private void finishLoading() {
@@ -1321,7 +1321,7 @@ public class DriveController implements Routable {
 	        if (start.isDirectory()) {
 	            chooser.setInitialDirectory(start);
 	        }
-	        File app = modal(() -> chooser.showOpenDialog(ApiTestMain.primaryStage()), null);
+	        File app = modal(() -> chooser.showOpenDialog(DailyPlannerAppMain.primaryStage()), null);
 	        if (app == null) {
 	            return;
 	        }

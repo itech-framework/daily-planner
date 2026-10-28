@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.WebView?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="org.flexitech.framework.products.daily_planner.ui.NoteViewController" styleClass="page">
+	<HBox styleClass="toolbar" spacing="6" alignment="CENTER_LEFT">
+		<Button text="Back" onAction="#onBack" />
+		<Region HBox.hgrow="ALWAYS" />
+		<ProgressIndicator fx:id="progress" visible="false" prefWidth="16" prefHeight="16" />
+		<Button fx:id="deleteButton" text="Move to Trash" onAction="#onDelete" />
+		<Button fx:id="browserButton" text="Open in Google Docs" onAction="#onOpenInBrowser" />
+		<Button fx:id="editButton" text="Edit" onAction="#onEdit" styleClass="accent-button" />
+	</HBox>
+	<VBox styleClass="note-heading" spacing="2">
+		<Label fx:id="titleLabel" styleClass="note-title" wrapText="true" />
+		<Label fx:id="metaLabel" styleClass="muted" />
+	</VBox>
+	<StackPane styleClass="note-paper" VBox.vgrow="ALWAYS">
+		<WebView fx:id="webView" />
+	</StackPane>
+</VBox>

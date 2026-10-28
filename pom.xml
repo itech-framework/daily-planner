@@ -23,12 +23,17 @@
 		<dependency>
 			<groupId>io.github.itech-framework</groupId>
 			<artifactId>api-client</artifactId>
-			<version>${flexi.version}</version>
+			<version>1.0.12-RC2</version>
 		</dependency>
 		<dependency>
 			<groupId>io.github.itech-framework</groupId>
 			<artifactId>java-fx</artifactId>
 			<version>${flexi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openjfx</groupId>
+			<artifactId>javafx-web</artifactId>
+			<version>17.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -41,6 +46,11 @@
 			<artifactId>google-api-client</artifactId>
 			<version>2.9.1</version>
 			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.17.2</version>
 		</dependency>
 	</dependencies>
 
@@ -101,7 +111,8 @@
 				<configuration>
 					<name>Daily Planner</name>
 					<vendor>Flexitech</vendor>
-					<mainClass>org.flexitech.framework.products.daily_planner.AppLauncher</mainClass>
+					<mainClass>
+						org.flexitech.framework.products.daily_planner.AppLauncher</mainClass>
 					<upgradeUuid>3f9c1a52-7d4e-4b8a-9e61-2c5d8f0a1b37</upgradeUuid>
 					<icon>src/main/resources/static/images/logo.ico</icon>
 					<perUser>true</perUser>

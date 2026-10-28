@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.flexitech.framework.products.daily_planner.ApiTestMain;
+import org.flexitech.framework.products.daily_planner.DailyPlannerAppMain;
 import org.flexitech.framework.products.daily_planner.app.AppEvents;
 import org.flexitech.framework.products.daily_planner.model.AgendaItem;
 import org.flexitech.framework.products.daily_planner.model.EventDraft;
@@ -231,7 +231,7 @@ public class CalendarController implements Routable {
 		if (saving) {
 			return;
 		}
-		EventEditor.open(ApiTestMain.primaryStage(), existing, start, allDay, draft -> saveEvent(existing, draft));
+		EventEditor.open(DailyPlannerAppMain.primaryStage(), existing, start, allDay, draft -> saveEvent(existing, draft));
 	}
 
 	private void saveEvent(AgendaItem existing, EventDraft draft) {
@@ -293,7 +293,7 @@ public class CalendarController implements Routable {
 
 		boolean[] gate = { false };
 		ModalDialog[] holder = new ModalDialog[1];
-		holder[0] = ModalDialog.builder().addOwner(ApiTestMain.primaryStage()).addContent(body)
+		holder[0] = ModalDialog.builder().addOwner(DailyPlannerAppMain.primaryStage()).addContent(body)
 				.addCloseButton("Cancel").addActionButton("Delete", guarded(gate, () -> {
 					holder[0].close();
 					removeEvent(item);
@@ -511,12 +511,12 @@ public class CalendarController implements Routable {
 
 		boolean[] gate = { false };
 		ModalDialog[] holder = new ModalDialog[1];
-		ModalDialog.ModalDialogBuilder builder = ModalDialog.builder().addOwner(ApiTestMain.primaryStage())
+		ModalDialog.ModalDialogBuilder builder = ModalDialog.builder().addOwner(DailyPlannerAppMain.primaryStage())
 				.addContent(body).addCloseButton("Close");
-		if (item.link() != null && !item.link().isBlank() && ApiTestMain.hostServices() != null) {
+		if (item.link() != null && !item.link().isBlank() && DailyPlannerAppMain.hostServices() != null) {
 			boolean meet = item.link().contains("meet.google.com");
 			builder.addActionButton(meet ? "Join Google Meet" : "Open in Google",
-					() -> ApiTestMain.hostServices().showDocument(item.link()));
+					() -> DailyPlannerAppMain.hostServices().showDocument(item.link()));
 		}
 		if (task) {
 			builder.addActionButton(item.done() ? "Mark as not done" : "Mark as done", guarded(gate, () -> {

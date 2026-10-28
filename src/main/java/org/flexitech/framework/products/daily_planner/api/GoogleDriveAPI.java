@@ -16,6 +16,7 @@ import io.github.itech_framework.api_client.annotations.parameters.Body;
 import io.github.itech_framework.api_client.annotations.parameters.Headers;
 import io.github.itech_framework.api_client.annotations.parameters.Path;
 import io.github.itech_framework.api_client.annotations.parameters.Query;
+import io.github.itech_framework.api_client.utils.body.BodyType;
 
 @ApiClient(baseUrl = "https://www.googleapis.com")
 public interface GoogleDriveAPI {
@@ -82,18 +83,22 @@ public interface GoogleDriveAPI {
 			@Path("fileId") String fileId,
 			@Query("mimeType") String mimeType);
 
-	@POST("/upload/drive/v3/files?uploadType=multipart")
-	DriveFileResponse uploadMultipart(@Headers Map<String, String> headers,
-			@Query("fields") String fields,
-			@Query("supportsAllDrives") String supportsAllDrives,
-			@Body byte[] body);
+	@POST("/upload/drive/v3/files")
+	DriveFileResponse uploadMultipart(
+	        @Headers Map<String, String> headers,
+	        @Query("uploadType") String uploadType,
+	        @Query("fields") String fields,
+	        @Query("supportsAllDrives") String supportsAllDrives,
+	        @Body(type = BodyType.BINARY) byte[] body);
 
-	@PATCH("/upload/drive/v3/files/{fileId}?uploadType=multipart")
-	DriveFileResponse updateMultipart(@Headers Map<String, String> headers,
-			@Path("fileId") String fileId,
-			@Query("fields") String fields,
-			@Query("supportsAllDrives") String supportsAllDrives,
-			@Body byte[] body);
+	@PATCH("/upload/drive/v3/files/{fileId}")
+	DriveFileResponse updateMultipart(
+	        @Headers Map<String, String> headers,
+	        @Path("fileId") String fileId,
+	        @Query("uploadType") String uploadType,
+	        @Query("fields") String fields,
+	        @Query("supportsAllDrives") String supportsAllDrives,
+	        @Body(type = BodyType.BINARY) byte[] body);
 
 	@POST("/upload/drive/v3/files?uploadType=resumable")
 	DriveFileResponse startResumableUpload(@Headers Map<String, String> headers,
